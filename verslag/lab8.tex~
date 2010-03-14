@@ -1,0 +1,116 @@
+\documentclass[pdftex,a4paper]{article}
+ %% PACKAGES
+ \usepackage[dutch]{babel}
+ \usepackage{vubtitlepage}
+ \usepackage{fancyhdr}
+ \usepackage{graphicx}
+ \usepackage[utf8]{inputenc}
+ \usepackage[T1]{fontenc}
+ \usepackage[usenames]{color}
+ \usepackage[pdftex,pdfpagelabels]{hyperref}
+ \usepackage{amssymb}
+
+ %% CUSTOM COLORS
+ \definecolor{grey}{rgb}{0.1804, 0.2039, 0.2118}
+ \newcommand{\red}[1]{{\color{red}{#1}}} % rood
+
+ %% CUSTOM COMMANDS
+ \newcommand{\tildefix}{\textasciitilde} % ASCII tilde
+ \newcommand{\hreftt}[2]{\href{#1}{\color{blue}\texttt{#2}}} % teletype link: URL, title
+ \newcommand{\link}[1]{\href{#1}{#1}} % URL
+ \newcommand{\linktt}[1]{\hreftt{#1}{\color{blue}#1}} % URL in teletype
+
+ \newcommand{\rotateboxx}[2]{\ifpdf \rotatebox{#1}{#2} \else #2 \fi}
+ \newcommand{\sectionInv}[1]{\addcontentsline{toc}{section}{#1}} % invisible section
+ \newcommand{\sectionUnN}[1]{\section*{#1}\sectionInv{#1}} % unnumbered section
+ \newcommand{\tbd}[1]{{\color{red}{#1}}} % tbd: to be done
+
+ %% CUSTOM ENVIRONMENTS
+ \newenvironment{quotationgr}{\begin{quotation}\color{grey}}{\end{quotation}}
+
+ %% DOCUMENT PROPERTIES
+ \faculty{Faculteit Ingenieurswetenschappen}
+
+ \title{Design van een hoogfrequente versterker en antenne}
+ \reason{Hoogfrequente elektronica en antennes}
+ \author{\href{mailto:Bert.Follon@vub.ac.be}{Bert Follon},
+         \href{mailto:Egon.Geerardyn@vub.ac.be}{Egon Geerardyn}}
+ \newcommand{\datum}{\today}
+ \date{\datum}
+ \hypersetup{colorlinks,%
+            citecolor=black,%
+            filecolor=black,%
+            linkcolor=black,%
+            urlcolor=blue,%
+            pdfauthor={Egon Geerardyn, Bert Follon},%
+            pdftitle={Design van een hoogfrequente versterker en antenne},%
+            plainpages=false}
+  \pdfpagewidth=\paperwidth
+  \pdfpageheight=\paperheight
+
+  
+
+
+ %% HEADER CONFIG
+ \pagestyle{fancy}
+  \rhead{\datum}
+  \chead{}
+  \lhead{Labo 8}
+  \cfoot{\thepage}
+
+
+\begin{document}
+  \maketitlepage
+  \newpage
+  \tableofcontents
+  \newpage
+  \part{Versterker}
+  \label{sec:Amp}
+
+    \section{Stabiliteit}
+      \paragraph{Controle van NVV voor stabiliteit}
+      \paragraph{Stabiliteitscirkels}
+
+    \section{Gebruik van de unilaterale benadering}
+
+    \section{Versterking}
+      \paragraph{Maximale versterking}
+      \paragraph{Gaincirkels}
+
+    \section{Matchingnetwerken}
+
+    \section{DC biasnetwerk}
+
+    \section{Simulaties met ideale transmissielijnen}
+
+    \section{Simulaties met microstrip}
+
+    \section{Lay-out}
+
+    \section{Metingen}
+
+    \section{Vergelijking metingen en simulaties}
+    
+  
+  \tbd{\textbf{Voor het verslag:}
+    \begin{itemize}
+     \item Alle berekeningen + verwijzing formule
+     \item Plots van ideale simulaties + simulatie in microstripversie
+     \item Gebruikte Smith Charts voor matching van in- en uitgang
+    \end{itemize}
+    }
+
+  \newpage
+  \part{Antenne}
+  \label{sec:AE}
+
+
+  \tbd{\textbf{Voor het verslag:}
+    \begin{itemize}
+    \item Alle berekeningen + verwijzing formule
+    \end{itemize}
+  }
+
+  \newpage
+  
+\end{document}
