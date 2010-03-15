@@ -6,7 +6,7 @@ function [ C, R ] = stabCircle(S,port)
 %     S: S parameters of amplifier
 %     port: 'in' or 'source' for input stability
 %           'out' or 'load' for output stability
-[K,Delta] = KDelta(S);
+Delta = det(S);
 S11 = S(1,1);
 S12 = S(1,2);
 S21 = S(2,1);
