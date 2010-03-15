@@ -1,7 +1,32 @@
 % VERSTERKER
 \section{Stabiliteit}
   \paragraph{Controle van NVV voor stabiliteit}
+    We controlere de mogelijke stabiliteit van de versterker door middel van formules 11.71 en 11.72 van \cite{Pozar}.
+    \[
+      K = \frac{1 - \left| S_{11} \right|^2 - \left| S_{22} \right|^2 + \left| \Delta \right|^2}{2 \left| S_{12}S_{21} \right|} > 1
+    \]
+    \[
+      \left| \Delta \right| < 1
+    \]
+    \[
+      \Delta = \det{S} = S_{11}S_{22} - S_{12}S_{21}
+    \]
+    
+    Aan deze voorwaarden is voldaan, zodat we kunnen besluiten dat de te realiseren versterker onconditioneel stabiel is.
   \paragraph{Stabiliteitscirkels}
+    Vermits de versterker onconditioneel stabiel is, zullen de stabiliteitscirkels ofwel de volledige Smith Chart omvatten ofwel buiten de Smith Chart vallen.  Met formules 11.68 en 11.69 uit \cite{Pozar}, worden middelpunt $C$ en straal $R$ van de stabiliteitscirkels bepaald.
+    \[
+      C_L = \frac{\conj{\left(S_{22} - \Delta \conj{S_{11}}\right)}}{\left| S_{22} \right|^2 - \left|\Delta\right|^2}
+      \qquad \qquad \qquad
+      R_L = \left| \frac{S_{12}S_{21}}{\left| S_{22} \right|^2 - \left|\Delta\right|^2}\right|
+    \]
+    \[
+      C_S = \frac{\conj{\left(S_{11} - \Delta \conj{S_{22}}\right)}}{\left| S_{11} \right|^2 - \left|\Delta\right|^2}
+      \qquad \qquad \qquad
+      R_S = \left| \frac{S_{12}S_{21}}{\left| S_{11} \right|^2 - \left|\Delta\right|^2}\right|
+    \]
+    \tbd{Figuren}
+    
 
 \section{Gebruik van de unilaterale benadering}
 
