@@ -23,12 +23,14 @@ NPN.S21     =  1.369 + 1i * 1.397; %
 NPN.S22     =  0.355 - 1i * 0.318; %
 NPN.S       = [ NPN.S11 NPN.S12    % S parameter matrix
                 NPN.S21 NPN.S22 ];
+texportNPN(NPN);
 
 %% PCB for amplifier
 PCBAmp = struct('name', 'PCB Material Amplifier');
 PCBAmp.type = 'FR4';
 PCBAmp.epsR = 4.25;     %[] relative dielectric constant
 PCBAmp.Z0   = 50;       %[Ohm] characteristic impedance
+texportPCB(PCBAmp,'verslag/res/PCBAmp.inc.tex');
 
 %% PCB for antenna
 PCBAE = struct('name', 'PCB Material Antenna');
@@ -36,3 +38,4 @@ PCBAE.type  = 'RO3003';
 PCBAE.epsR  = 3;        %[] relative dielectric constant
 PCBAE.Z0    = 50;       %[Ohm] characteristic impedance of microstrip
 PCBAE.ZAE   = 73;       %[Ohm] characteristic impedance of antenna
+texportPCB(PCBAE,'verslag/res/PCBAE.inc.tex');

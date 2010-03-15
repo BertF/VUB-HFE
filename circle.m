@@ -3,4 +3,4 @@ function [ circ ] = circle(C,R,steps)
 %   Returns points on a circle in the complex plane with
 %   [circ] = circle(C,R,steps)
 th = linspace(0,2*pi,steps);
-circ = C + R * exp(j*th);
+circ = C + R * exp(1i*th);

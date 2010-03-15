@@ -1,8 +1,6 @@
-function [B1, B2, C1, C2] = BBCC(S);
+function [B1, B2, C1, C2] = BBCC(S)
 Delta = det(S);
 S11 = S(1,1);
-S12 = S(1,2);
-S21 = S(2,1);
 S22 = S(2,2);
     
 B1=1+norm(S11)^2-norm(S22)^2-norm(Delta)^2;

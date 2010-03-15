@@ -12,26 +12,26 @@ if ((K>1) && norm(Delta) < 1)
 end;
 
 %% Stabiliteitscirkels
-% output
 [CL, RL] = stabCircle(NPN.S,'load');
 [CS, RS] = stabCircle(NPN.S,'source');
 
 figure;
-plot(circle(0,1,100),'-k','DisplayName','Smith Chart'); hold on;
+plot([circle(0,1,100) circle(0.5,0.5,100)],'-k','DisplayName','Smith Chart'); hold on;
 plot(circle(CL,RL,100),'-r','DisplayName','Output stabiliteitscirkel');
-plot(circle(CS,RS,100),'-b','DisplayName','Input stabiliteitscirkel'); hold off;
+plot(circle(CS,RS,100),'-b','DisplayName','Input stabiliteitscirkel'); 
 legend(gca,'show'); axis square; grid on;
 title('Stabiliteitscirkels');
+plot(CL,'*r');
+plot(CS,'*b'); hold off;
 printpdffig(gcf, [10,10], 'verslag/fig/stabiliteitscirkels.pdf');
 texportCR(CL,RL,'C_L','R_L','verslag/res/stabcirkelload.inc.tex');
 texportCR(CS,RS,'C_S','R_S','verslag/res/stabcirkelsource.inc.tex');
 
 
-%% Control unilateraal
+%% Controle unilateraal
 U=figure_of_merit(NPN.S);
-ondergrens=1/(1+U)^2;
-bovengrens=1/(1-U)^2;
-texportUnilateral(U,ondergrens,bovengrens,'verslag/res/unilateral.inc.tex');
+unilateralBounds = [1/(1+U)^2 1/(1-U)^2];
+texportUnilateral(U,unilateralBounds,'verslag/res/unilateral.inc.tex');
 
 %% bilateral case
 [B1, B2, C1, C2] = BBCC(NPN.S);
@@ -40,10 +40,10 @@ Tl=(B2-[1 -1]*sqrt(B2^2-4*norm(C2)^2))/(2*C2);
 
 Gtumax=(abs(NPN.S21)^2)./((1-abs(NPN.S11)^2)*(1-abs(NPN.S22)^2));
 
-Gtmax=(abs(NPN.S21)^2*(1-abs(Tl).^2))./((1-abs(Ts(1)).^2)*(norm((1-NPN.S22*Tl)).^2))
-Gtmax/Gtumax
-Gtmax=(abs(NPN.S21)^2*(1-abs(Tl).^2))./((1-abs(Ts(2)).^2)*(norm((1-NPN.S22*Tl)).^2))
-Gtmax/Gtumax
+Gtmax=(abs(NPN.S21)^2*(1-abs(Tl).^2))./((1-abs(Ts(1)).^2)*(norm((1-NPN.S22*Tl)).^2));
+Gtmax/Gtumax;
+Gtmax=(abs(NPN.S21)^2*(1-abs(Tl).^2))./((1-abs(Ts(2)).^2)*(norm((1-NPN.S22*Tl)).^2));
+Gtmax/Gtumax;
 
 
   
