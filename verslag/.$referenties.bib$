@@ -14,6 +14,7 @@
   publisher = {Newnes},
   year = {1997},
   author = {Chris Bowick},
+  file = {:Z\:\\0750699469 RF Circuit Design.pdf:PDF},
   owner = {APLPrj02},
   timestamp = {2010.03.17}
 }
@@ -51,7 +52,8 @@
   publisher = {Prentice Hall},
   year = {1984},
   author = {G. Gonzalez},
-  address = {Sydney}
+  address = {Sydney},
+  file = {:Z\:\\microwave_transistor_amplifiers_2nded_gonzalez[1].pdf:PDF}
 }
 
 @MISC{lesWendy,
@@ -74,7 +76,8 @@
   publisher = {Addison-Wesley},
   year = {1990},
   author = {D.M. Pozar},
-  address = {Reading}
+  address = {Reading},
+  file = {:Z\:\\[D M.Pozar]Microwave Engineering 3rd Ed.pdf:PDF;:Z\:\\[D M.Pozar]Microwave Engineering 3rd Ed.pdf:PDF}
 }
 
 @ELECTRONIC{smitchartgui,

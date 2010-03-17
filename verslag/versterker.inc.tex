@@ -7,7 +7,7 @@
     
 \section{Stabiliteit}
   
-    We controleren de nodige en voldoende voorwaarde voor stabiliteit van de versterker door middel van formules 11.71 en 11.72 van \cite{Pozar}.
+    We controleren de nodige en voldoende voorwaarde voor stabiliteit van de versterker door middel van formules 11.71 en 11.72 van \cite{Pozar}. Dit is het Rollet-stabiliteitscriterium.
     \[
       K = \frac{1 - \left| S_{11} \right|^2 - \left| S_{22} \right|^2 + \left| \Delta \right|^2}{2 \left| S_{12}S_{21} \right|} > 1
     \]
@@ -85,8 +85,34 @@
   
 
 \section{Berekening van maximale versterking}
+  Aan de hand van \cite{Pozar} en \cite{Gonzalez} bepalen we de maximale versterking die mogelijk is met deze transistor voor
+  de opgegeven werkingsfrequentie.
+  
+  In appendix E van \cite{Gonzalez} werd bewezen dat bovenstaande uitdrukking voor een onconditioneel stabiele transistor (K > 1)
+  en simultane input- en outputmatching, de maximale versterking uitgedukt kan worden als:
+  \[
+    G_{Tmax} = \frac{\norm{S_{21}}}{\norm{S_{12}}} \left( K - \sqrt{K^2-1}\right)
+  \]
+  
   
   \section{Bepaling van de constante gaincirkels}
+  Uit formules 5.96 en 5.100 van \cite{lessen} kunnen we het middelpunt en de straal van de constante gaincirkels voor gain $G_p$ bepalen.
+  \[
+    C = \frac{\left( \conj{S_{22}} - S_{11} \conj{\Delta} \right)}{\norm{S_{22}}^2 - \norm{\Delta}^2 + \frac{\norm{S_{21}}^ 2}{G_p}}
+  \]
+  \[
+    R = \frac{\sqrt{\norm{S_{12} S_{21}}^2 - 2 K \norm{S_{12} S_{21} \frac{\norm{S_{21}}^2}{G_p} + \frac{\norm{S_{21}}^2}{G_p} }}}{\norm{S_{22}}^2 - \norm{\Delta}^2 + \frac{\norm{S_{21}}^2}{G_p}}
+  \]
+  Voor een versterking van $G_p = 3dB$ bekomen we volgende waarden:
+  \input{res/gaincirkel3db.inc.tex}
+  Op de Smith Chart worden deze constante gain cirkels voor enkele verschillende versterkingen weergegeven op figuur \ref{fig:gainCirkels}.
+  \begin{figure}[!h]
+      \centering
+      \includegraphics[width=\textwidth,keepaspectratio=true]{fig/gaincirkels.pdf}  
+      \caption{Constante gaincirkels} 
+      \label{fig:gainCirkels}
+    \end{figure}
+  
 
 \section{Matchingnetwerken}
 

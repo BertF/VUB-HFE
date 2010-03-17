@@ -38,14 +38,20 @@ texportUnilateral(U,unilateralBounds,'verslag/res/unilateral.inc.tex');
 match.allTs=(B1-[1 -1]*sqrt(B1^2-4*norm(C1)^2))/(2*C1);
 match.allTl=(B2-[1 -1]*sqrt(B2^2-4*norm(C2)^2))/(2*C2);
 
+if abs(K) > 1
+    match.Ts = match.allTs(1);
+    match.Tl = match.allTl(1);
+elseif abs(K) > 1
+    match.Ts = match.allTs(2);
+    match.Tl = match.allTl(2);
+end;
+
 Gtumax=(abs(NPN.S21)^2)./((1-abs(NPN.S11)^2)*(1-abs(NPN.S22)^2));
-Gtmax = maxGain(NPN.S,match.allTs,match.allTl);
+Gtmax = maxGain(NPN.S,match.Ts,match.Tl);
+
+Gtmax = maxGain2(NPN.S,K);
 
 
-% maximale gain kiezen
-[i,j] = find(abs(Gtmax)==max(max(abs(Gtmax))));
-match.Ts = match.allTs(i);
-match.Tl = match.allTl(j);
 
 
 
@@ -54,20 +60,27 @@ match.Tl = match.allTl(j);
 
 [CS, RS] = gainCircle(NPN.S,gs,'in');
 [CL, RL] = gainCircle(NPN.S,gl,'out');
+
+Gp= [10.^([3 2 1]/20) 0.5*Gtmax 0.99*Gtmax Gtmax];
+[C, R] = gainCircle(NPN.S,Gp,'in',K);
 figure;
 plot([circle(0,1,100) circle(0.5,0.5,100)],'-k','DisplayName','Smith Chart'); hold on;
-plot(circle(CL,RL,100),'-r','DisplayName','Output');
-plot(circle(CS,RS,100),'-b','DisplayName','Input'); 
+color = 'rgbcmk'; 
+for i = 1:numel(C)
+    plot(circle(C(i),R(i),100),color(i),'DisplayName',['Gaincirkel = ' num2str(db(Gp(i))) ' dB']);
+end;
 legend(gca,'show'); axis square; grid on;
+for i = 1:numel(C)
+    plot(C(i),['*' color(i)]);
+end;
 title('Gaincirkels');
-plot(CL,'*r');
-plot(CS,'*b'); hold off;
 printpdffig(gcf, [10,10], 'verslag/fig/gaincirkels.pdf');
-texportCR(CL,RL,'C_L','R_L','verslag/res/gaincirkelload.inc.tex');
-texportCR(CS,RS,'C_S','R_S','verslag/res/gaincirkelsource.inc.tex');
+texportCR(C(1),R(1),'C_L','R_L','verslag/res/gaincirkel3db.inc.tex');
 
-
-
-
+%% 
+% Gp=Gtmax;
+% Gp=10^(3/20)
+% R=sqrt(norm(NPN.S12*NPN.S21)^2-2*K*norm(NPN.S12*NPN.S21)*(norm(NPN.S21)^2/Gp)+(norm(NPN.S21)^2/Gp)^2)/(norm(NPN.S22)^2-norm(Delta)^2+norm(NPN.S21)^2/Gp)
+% C=(NPN.S22'-NPN.S11*Delta')/(norm(NPN.S22)^2-norm(Delta)^2+norm(NPN.S21)^2/Gp)
 
   
