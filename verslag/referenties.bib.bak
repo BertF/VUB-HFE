@@ -105,7 +105,6 @@
 }
 
 @ELECTRONIC{MW101,
-  year = {2010},
   title = {Microwaves 101},
   howpublished = {\link{http://www.microwaves101.com/}},
   url = {http://www.microwaves101.com/},

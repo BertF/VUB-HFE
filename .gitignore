@@ -10,3 +10,5 @@
 *.synctex.gz
 Thumbs.db
 .dropbox
+*.bak
+*.bib$
