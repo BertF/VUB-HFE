@@ -51,10 +51,6 @@ Gtmax = maxGain(NPN.S,match.Ts,match.Tl);
 
 Gtmax = maxGain2(NPN.S,K);
 
-
-
-
-
 %% gain circles
 [gs gl]=normalized_gain(match,NPN.S);
 
@@ -76,11 +72,4 @@ end;
 title('Gaincirkels');
 printpdffig(gcf, [10,10], 'verslag/fig/gaincirkels.pdf');
 texportCR(C(1),R(1),'C_L','R_L','verslag/res/gaincirkel3db.inc.tex');
-
-%% 
-% Gp=Gtmax;
-% Gp=10^(3/20)
-% R=sqrt(norm(NPN.S12*NPN.S21)^2-2*K*norm(NPN.S12*NPN.S21)*(norm(NPN.S21)^2/Gp)+(norm(NPN.S21)^2/Gp)^2)/(norm(NPN.S22)^2-norm(Delta)^2+norm(NPN.S21)^2/Gp)
-% C=(NPN.S22'-NPN.S11*Delta')/(norm(NPN.S22)^2-norm(Delta)^2+norm(NPN.S21)^2/Gp)
-
   

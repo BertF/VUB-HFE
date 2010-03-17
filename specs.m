@@ -4,6 +4,9 @@
 % 2009 - 2010
 % Specifications
 
+%% set path for smith chart
+path(path,'smithchart');
+
 %% general specs
 f0 = 1445e6;            %[Hz] working frequency
 
