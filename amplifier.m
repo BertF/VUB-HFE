@@ -35,15 +35,39 @@ texportUnilateral(U,unilateralBounds,'verslag/res/unilateral.inc.tex');
 
 %% bilateral case
 [B1, B2, C1, C2] = BBCC(NPN.S);
-Ts=(B1-[1 -1]*sqrt(B1^2-4*norm(C1)^2))/(2*C1);
-Tl=(B2-[1 -1]*sqrt(B2^2-4*norm(C2)^2))/(2*C2);
+match.allTs=(B1-[1 -1]*sqrt(B1^2-4*norm(C1)^2))/(2*C1);
+match.allTl=(B2-[1 -1]*sqrt(B2^2-4*norm(C2)^2))/(2*C2);
 
 Gtumax=(abs(NPN.S21)^2)./((1-abs(NPN.S11)^2)*(1-abs(NPN.S22)^2));
+Gtmax = maxGain(NPN.S,match.allTs,match.allTl);
 
-Gtmax=(abs(NPN.S21)^2*(1-abs(Tl).^2))./((1-abs(Ts(1)).^2)*(norm((1-NPN.S22*Tl)).^2));
-Gtmax/Gtumax;
-Gtmax=(abs(NPN.S21)^2*(1-abs(Tl).^2))./((1-abs(Ts(2)).^2)*(norm((1-NPN.S22*Tl)).^2));
-Gtmax/Gtumax;
+
+% maximale gain kiezen
+[i,j] = find(abs(Gtmax)==max(max(abs(Gtmax))));
+match.Ts = match.allTs(i);
+match.Tl = match.allTl(j);
+
+
+
+%% gain circles
+[gs gl]=normalized_gain(match,NPN.S);
+
+[CS, RS] = gainCircle(NPN.S,gs,'in');
+[CL, RL] = gainCircle(NPN.S,gl,'out');
+figure;
+plot([circle(0,1,100) circle(0.5,0.5,100)],'-k','DisplayName','Smith Chart'); hold on;
+plot(circle(CL,RL,100),'-r','DisplayName','Output');
+plot(circle(CS,RS,100),'-b','DisplayName','Input'); 
+legend(gca,'show'); axis square; grid on;
+title('Gaincirkels');
+plot(CL,'*r');
+plot(CS,'*b'); hold off;
+printpdffig(gcf, [10,10], 'verslag/fig/gaincirkels.pdf');
+texportCR(CL,RL,'C_L','R_L','verslag/res/gaincirkelload.inc.tex');
+texportCR(CS,RS,'C_S','R_S','verslag/res/gaincirkelsource.inc.tex');
+
+
+
 
 
   
