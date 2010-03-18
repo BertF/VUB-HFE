@@ -36,13 +36,8 @@
  if nargin == 1
      LinCol='m';
  end
- if size(point) == [1,1]
-     r1 = real(point);
-     x1 = imag(point);
- else
-     r1 = point(1);
-     x1 = point(2);
- end;
+ r1 = point(1);
+ x1 = point(2);
  [u1, v1] = scPOI(r1,x1);
 
  % MARK POINT

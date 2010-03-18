@@ -102,7 +102,7 @@ end
 
 if isempty(get(gcf, 'name')) || nargin ==0
     h = gcf;
-    set(gcf,'name','Smith Chart');
+    set(gcf,'MenuBar','none','numbertitle','off','name','Smith Chart');
     set(gca,'position',[0.01 0.01 0.98 0.98]);
     scPresent = 0;
 else
@@ -379,7 +379,7 @@ for ii=0:2:360
     else
         plot([inr*cos(pi*ii/180), inr*1.025*cos(pi*ii/180)], [inr*sin(pi*ii/180), inr*1.025*sin(pi*ii/180)], color);
         if ii~=360
-            degstr = [num2str(ii),'ï¿½'];
+            degstr = [num2str(ii),'°'];
             h = text(inr*1.04*cos(pi*(ii)/180), inr*1.04*sin(pi*(ii)/180), degstr);
             set(h,'HorizontalAlignment','center','color',color,'rotation',270+ii+2.5,'fontsize',6);
         end
@@ -598,7 +598,7 @@ end
 
 % PRINT ZL =   AT THE BOTTOM RIGHT CORNER
 
-h = text (1.0, -1, 'Z_C =  50 \Omega');
+h = text (1.0, -1, 'Z_L =      \Omega');
 set(h, 'fontname', 'Times New Roman', 'fontsize', 14,'HorizontalAlignment', 'right');
 
 

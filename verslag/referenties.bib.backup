@@ -52,44 +52,28 @@
         title = "{MATLAB Smith Chart GUI}",
         author = "Pathmanathan Priyatharsahn",
         url = "http://www.mathworks.com/matlabcentral/fileexchange/3795-smithchartgui",
-        year = "2003",
-        howpublished = "\link{http://www.mathworks.com/matlabcentral/fileexchange/3795-smithchartgui}"
+        howpublished = "{\link{http://www.mathworks.com/matlabcentral/fileexchange/3795-smithchartgui}}"
 }
 
 @Electronic{ smithchartcircles,
         title = "{The MATLAB Smith Chart Circles Toolbox}",
-        author = "Warren du Plessis",
+        author = "",
         url = "http://www.mathworks.com/matlabcentral/fileexchange/20960-the-smith-chart-circles-toolbox",
-        year = "2009",
         howpublished = "{\link{http://www.mathworks.com/matlabcentral/fileexchange/20960-the-smith-chart-circles-toolbox}}"
 }
 
 @Electronic{ smithchart,
         title = "{MATLAB Smithchart}",
-        author = "Mohammad Ashfaq",
+        author = "",
         url = "http://www.mathworks.com/matlabcentral/fileexchange/324-smithchart",
-        year = "2006",
-        howpublished = "\link{http://www.mathworks.com/matlabcentral/fileexchange/324-smithchart}"
+        howpublished = "{\link{http://www.mathworks.com/matlabcentral/fileexchange/324-smithchart}}"
 }
 
 
 @Electronic{ github,
         title = "{GitHub VUB-HFE repository}",
-        author = "Egon Geerardyn en Bert Follon",
+        author = "Egon Geerardyn \and Bert Follon",
         url = "http://github.com/egeerardyn/VUB-HFE",
         howpublished = "{\link{http://github.com/egeerardyn/VUB-HFE}}"
 }
-
-@Misc{ lessen,
-        title = "Lessen hoogfrequent elektronica en antennes",
-        author = "Yves Rolain en Alain Barel",
-        year = "2010"
-}
-
-@Misc{ lesWendy,
-        title = "Inleidingsles labo hoogfrequent elektronica en antennes",
-        author = "Wendy Van Moer",
-        year = "2010"
-}
-
 

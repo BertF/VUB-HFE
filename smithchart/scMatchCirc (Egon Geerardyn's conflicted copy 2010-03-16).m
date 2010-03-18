@@ -23,7 +23,7 @@ function scMatchCirc(LinCol)
 %         scDraw;
 %         scMatchCirc;
 %         will draw a blank smith chart and draw a circle having center at the
-%         at the point (0.5, 0) and has a radius equal to 0.5. This circle
+%         at the point (-0.5, 0) and has a radius equal to 0.5. This circle
 %         will be the locus of all the points having admittances reciprocal to the 
 %         impedances on the circle r = 1 of the smith chart.
 %
@@ -36,8 +36,8 @@ function scMatchCirc(LinCol)
     LinCol = 'm';
  end
 
- x = 0:0.01:1;
- y = real(sqrt(0.5^2-(x-.5).^2));
+ x = -1:0.01:0;
+ y = real(sqrt(0.5^2-(x+.5).^2));
  plot(x,  y, LinCol);
  plot(x, -y, LinCol);
 

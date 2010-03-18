@@ -36,14 +36,9 @@ function scMove(Pos1,length,LinCol)
 if nargin == 2
     LinCol = 'm';
 end
-if size(Pos1) == [1,1]
- r1 = real(Pos1);
- x1 = imag(Pos1);
-else
+
  r1       = Pos1(1);
  x1       = Pos1(2);
-end;
-
  [u1, v1] = scPOI(r1,x1);
 
  % MARK STARTING POINT

@@ -24,8 +24,6 @@
  \newcommand{\sectionInv}[1]{\addcontentsline{toc}{section}{#1}} % invisible section
  \newcommand{\sectionUnN}[1]{\section*{#1}\sectionInv{#1}} % unnumbered section
  \newcommand{\tbd}[1]{{\color{red}{#1}}} % tbd: to be done
- \newcommand{\conj}[1]{#1^{\star}}
- \newcommand{\norm}[1]{\left| #1 \right|}
 
  %% CUSTOM ENVIRONMENTS
  \newenvironment{quotationgr}{\begin{quotation}\color{grey}}{\end{quotation}}
@@ -67,11 +65,10 @@
   \tableofcontents
   \listoffigures
   \listoftables
-  De broncode en een digitale versie van het verslag zijn beschikbaar op \cite{github}.
   \newpage
   \part{Versterker}
   \label{sec:Amp}
-    
+    \cite{BFR91A}
     \input{versterker.inc.tex}
 
   \newpage
