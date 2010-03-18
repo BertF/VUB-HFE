@@ -1,7 +1,7 @@
 function [] = texportUnilateral(U,bounds,file)
 lower = bounds(1);
 upper = bounds(2);
-dbmode = 'power';
+dbmode = 'voltage';
 
 fid = fopen(file,'w');
 

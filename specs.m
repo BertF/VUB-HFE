@@ -4,6 +4,9 @@
 % 2009 - 2010
 % Specifications
 
+%% set path for smith chart
+path(path,'smithchart');
+
 %% general specs
 f0 = 1445e6;            %[Hz] working frequency
 
@@ -39,3 +42,8 @@ PCBAE.epsR  = 3;        %[] relative dielectric constant
 PCBAE.Z0    = 50;       %[Ohm] characteristic impedance of microstrip
 PCBAE.ZAE   = 73;       %[Ohm] characteristic impedance of antenna
 texportPCB(PCBAE,'verslag/res/PCBAE.inc.tex');
+
+%% Matching networks
+match = struct('name', 'Matching networks');
+match.f0      = f0;
+

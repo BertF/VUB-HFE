@@ -1,2 +1,6 @@
 \select@language {dutch}
 \contentsline {figure}{\numberline {1}{\ignorespaces Stabiliteitscirkels}}{3}{figure.1}
+<<<<<<< HEAD:verslag/verslag.lof
+=======
+\contentsline {figure}{\numberline {2}{\ignorespaces Constante gaincirkels}}{5}{figure.2}
+>>>>>>> dcceb80cc7f812a17e7dc0ccc38fbc40ab636af1:verslag/verslag.lof
