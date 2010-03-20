@@ -14,16 +14,9 @@
   publisher = {Newnes},
   year = {1997},
   author = {Chris Bowick},
+  file = {:Z\:\\0750699469 RF Circuit Design.pdf:PDF},
   owner = {APLPrj02},
   timestamp = {2010.03.17}
-}
-
-@ARTICLE{Edward,
-  author = {Brian Edward, Daniel Rees},
-  title = {A broadband printed dipole with integrated balun},
-  journal = {Microwave Journal},
-  year = {1987},
-  month = may
 }
 
 @ARTICLE{Chang,
@@ -39,25 +32,55 @@
   month = feb
 }
 
+@ARTICLE{Edward,
+  author = {Brian Edward and Daniel Rees},
+  title = {A broadband printed dipole with integrated balun},
+  journal = {Microwave Journal},
+  year = {1987},
+  pages = {339-344},
+  month = may
+}
+
+@BOOK{Fooks,
+  title = {Microwave Engineering using Microstrip Circuits},
+  publisher = {Prentice Hall},
+  year = {1989},
+  author = {E.H. Fooks and R.A. Zakarevivius}
+}
+
 @ELECTRONIC{github,
-  author = {Egon Geerardyn, Bert Follon},
+  author = {Egon Geerardyn and Bert Follon},
+  year = {2010},
   title = {{GitHub VUB-HFE repository}},
   howpublished = {{\link{http://github.com/egeerardyn/VUB-HFE}}},
   url = {http://github.com/egeerardyn/VUB-HFE}
 }
 
 @BOOK{Gonzalez,
-  title = {Microwave Transistor Amplifiers - Analysis and Design},
+  title = {Microwave Transistor Amplifiers: Analysis and Design},
   publisher = {Prentice Hall},
   year = {1984},
   author = {G. Gonzalez},
-  address = {Sydney}
+  address = {Sydney},
+  file = {:Z\:\\microwave_transistor_amplifiers_2nded_gonzalez[1].pdf:PDF}
 }
 
-@MISC{lesWendy,
-  author = {Wendy Van Moer},
-  title = {Inleidingsles labo hoogfrequent elektronica en antennes},
-  year = {2010}
+@BOOK{jones,
+  title = {Microwave filters, Impedance Matching Networks and Coupling Structures},
+  publisher = {Artech House Books},
+  author = {G. Matthaei and L. Young and E.M.T. Jones},
+  owner = {egon},
+  timestamp = {2010.03.20}
+}
+
+@ELECTRONIC{wcalc,
+  author = {Dan McMahill},
+  year = {2006},
+  title = {Wcalc},
+  howpublished = {\link{http://wcalc.sourceforge.net}},
+  url = {http://wcalc.sourceforge.net},
+  owner = {egon},
+  timestamp = {2010.03.20}
 }
 
 @ELECTRONIC{smithchartcircles,
@@ -68,13 +91,13 @@
   url = {http://www.mathworks.com/matlabcentral/fileexchange/20960-the-smith-chart-circles-toolbox}
 }
 
-@INBOOK{Pozar,
-  chapter = {5-11},
+@BOOK{Pozar,
   title = {Microwave Engineering},
   publisher = {Addison-Wesley},
-  year = {1990},
+  year = {1998},
   author = {D.M. Pozar},
-  address = {Reading}
+  address = {Reading},
+  file = {:Z\:\\[D M.Pozar]Microwave Engineering 3rd Ed.pdf:PDF;:Z\:\\[D M.Pozar]Microwave Engineering 3rd Ed.pdf:PDF}
 }
 
 @ELECTRONIC{smitchartgui,
@@ -85,6 +108,14 @@
   url = {http://www.mathworks.com/matlabcentral/fileexchange/3795-smithchartgui}
 }
 
+@BOOK{rizzi,
+  title = {Microwave Engineering: Passive Circuits},
+  publisher = {Prentice Hall},
+  author = {Peter A. Rizzi},
+  owner = {egon},
+  timestamp = {2010.03.20}
+}
+
 @BOOK{lessen,
   title = {Hoogfrequent elektronica en antennes},
   publisher = {VUB},
@@ -92,12 +123,26 @@
   author = {Yves Rolain and Alain Barel}
 }
 
-@INBOOK{Fooks,
-  pages = {131--133},
-  title = {Microwave Engineering using Microstrip Circuits},
-  publisher = {Prentice Hall},
-  year = {1989},
-  author = {Fooks \and Zakarevicius}
+@BOOK{sze,
+  title = {Physics of semiconductor devices},
+  publisher = {John Wiley and Sons},
+  author = {S.M. Sze},
+  owner = {egon},
+  timestamp = {2010.03.20}
+}
+
+@MISC{lesWendy,
+  author = {Van Moer, Wendy},
+  title = {Inleidingsles labo hoogfrequent elektronica en antennes},
+  year = {2010}
+}
+
+@BOOK{yngvesson,
+  title = {Microwave semiconductor devices},
+  publisher = {Kluwer Academic Publishers},
+  author = {Sigfrid Yngvesson},
+  owner = {egon},
+  timestamp = {2010.03.20}
 }
 
 @BOOKLET{BFR91A,

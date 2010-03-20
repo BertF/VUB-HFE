@@ -47,7 +47,7 @@
 %     Mohammad Ashfaq - (31-05-2000)
 %     Mohammad Ashfaq - (13-04-2006) Modified (examples included)
 
-function h = scDraw(r, x, ChColor, xR, xL, rR, rL)
+function H = scDraw(r, x, ChColor, xR, xL, rR, rL)
 
 FullMapWithLabels = 1;
 if nargin==1
@@ -85,7 +85,7 @@ if nargin<=1
             0,    0,    0,    0,    2,    0,    0,    0,    0,    0,     2,    0,     0,   0,    0,...
             0,    0,    0,    0,    0,    0,    0     0,    0];
     xPrint  = [0.1:0.1:1.0,1.5 2.0 3.0 4.0 5.0 10 20 50];
-    ChColor = 'b';
+    ChColor = 'k';
 end
 
 if (nargin == 2)||(nargin ==3)
@@ -97,12 +97,14 @@ if (nargin == 2)||(nargin ==3)
     xPrint = x;
 end
 if nargin ==2 
-    ChColor = 'b';
+    ChColor = 'k';
 end
 
 if isempty(get(gcf, 'name')) || nargin ==0
-    h = gcf;
+    H = gcf;
     set(gcf,'name','Smith Chart');
+    set(gca,'color','w');
+    whitebg(gcf,'w');
     set(gca,'position',[0.01 0.01 0.98 0.98]);
     scPresent = 0;
 else
@@ -123,9 +125,15 @@ scReacArc(x, -1, ChColor, rR, rL);
 if ~scPresent
     
     % DRAW THE OUTER CIRCLE AND THE X-AXIS
-    plot([-1 1],[0 0], ChColor);
-    plot(-1:.001:1, sqrt(1-(-1:.001:1).^2), ChColor);
-    plot(-1:.001:1,-sqrt(1-(-1:.001:1).^2), ChColor);
+    h = plot([-1 1],[0 0], ChColor);
+    set(get(get(h,'Annotation'),'LegendInformation'),...
+        'IconDisplayStyle','off'); % Exclude line from legend
+    h=plot(-1:.001:1, sqrt(1-(-1:.001:1).^2), ChColor);
+    set(get(get(h,'Annotation'),'LegendInformation'),...
+        'IconDisplayStyle','off'); % Exclude line from legend
+    h=plot(-1:.001:1,-sqrt(1-(-1:.001:1).^2), ChColor);
+    set(get(get(h,'Annotation'),'LegendInformation'),...
+        'IconDisplayStyle','off'); % Exclude line from legend
     
     % PRINT r VALUES
     scPrnVal(rPrint, 'r');
@@ -134,18 +142,18 @@ if ~scPresent
     scPrnVal(xPrint, 'x');
     
     % DRAW THE ANGLE BOUNDARY
-    scConCirc(1.01,'r');
-    scConCirc(1.08,'r');
-    scAngles(1.01, 1.08, 'r');
+    scConCirc(1.01,ChColor,1);
+    scConCirc(1.08,ChColor,1);
+    scAngles(1.01, 1.08, ChColor);
     
     % DRAW THE LENGTH BOUNDARY
-    scConCirc(1.085,'m');
-    scConCirc(1.16,'m');
-    scLength(1.085, 1.16, 'm');
+    scConCirc(1.085,ChColor,1);
+    scConCirc(1.16,ChColor,1);
+    scLength(1.085, 1.16, ChColor);
     
     if FullMapWithLabels
-        scScales;
-        scLabels;
+        scScales(ChColor);
+        scLabels(ChColor);
     end
 end
 
@@ -188,17 +196,26 @@ for ii = 1:length(r)
         u      = linspace((rc-1)/(rc+1), xco1, 500);
         vplus  = sqrt((1/(1+rc))^2-(u-rc/(1+rc)).^2);
         vminus = (-sqrt((1/(1+rc))^2-(u-rc/(1+rc)).^2));
-        plot(real(u),real(vplus),LinCol);
+        h = plot(real(u),real(vplus),LinCol);
+        set(get(get(h,'Annotation'),'LegendInformation'),...
+        'IconDisplayStyle','off'); % Exclude line from legend
+
         hold on;
-        plot(real(u),real(vminus),LinCol);
+        h=plot(real(u),real(vminus),LinCol);
+        set(get(get(h,'Annotation'),'LegendInformation'),...
+        'IconDisplayStyle','off'); % Exclude line from legend
     end
     if xco2 ~= 20
         u      = linspace(xco2, xco1, 200);
         vplus  = sqrt((1/(1+rc))^2-(u-rc/(1+rc)).^2);
         vminus = (-sqrt((1/(1+rc))^2-(u-rc/(1+rc)).^2));
-        plot(real(u),real(vplus),LinCol);
+        h = plot(real(u),real(vplus),LinCol);
+        set(get(get(h,'Annotation'),'LegendInformation'),...
+        'IconDisplayStyle','off'); % Exclude line from legend
         hold on;
-        plot(real(u),real(vminus),LinCol);
+        h = plot(real(u),real(vminus),LinCol);
+        set(get(get(h,'Annotation'),'LegendInformation'),...
+        'IconDisplayStyle','off'); % Exclude line from legend
     end
 end
 
@@ -278,8 +295,12 @@ for jj=1:length(x)
         end
     end
     if xc~=0
-        plot(real(uup),real(vup),LinCol);
-        plot(real(udn),real(vdn),LinCol);
+        h = plot(real(uup),real(vup),LinCol);
+        set(get(get(h,'Annotation'),'LegendInformation'),...
+        'IconDisplayStyle','off'); % Exclude line from legend
+        h = plot(real(udn),real(vdn),LinCol);
+        set(get(get(h,'Annotation'),'LegendInformation'),...
+        'IconDisplayStyle','off'); % Exclude line from legend
     end
 end
 
@@ -375,11 +396,15 @@ function scAngles(inr, outr, color)
 
 for ii=0:2:360
     if floor(ii/10) ~= ii/10
-        plot([inr*cos(pi*ii/180), inr*1.015*cos(pi*ii/180)], [inr*sin(pi*ii/180), inr*1.015*sin(pi*ii/180)], 'k');
+        h= plot([inr*cos(pi*ii/180), inr*1.015*cos(pi*ii/180)], [inr*sin(pi*ii/180), inr*1.015*sin(pi*ii/180)], 'k');
+        set(get(get(h,'Annotation'),'LegendInformation'),...
+        'IconDisplayStyle','off'); % Exclude line from legend
     else
-        plot([inr*cos(pi*ii/180), inr*1.025*cos(pi*ii/180)], [inr*sin(pi*ii/180), inr*1.025*sin(pi*ii/180)], color);
+        h = plot([inr*cos(pi*ii/180), inr*1.025*cos(pi*ii/180)], [inr*sin(pi*ii/180), inr*1.025*sin(pi*ii/180)], color);
+        set(get(get(h,'Annotation'),'LegendInformation'),...
+        'IconDisplayStyle','off'); % Exclude line from legend
         if ii~=360
-            degstr = [num2str(ii),'�'];
+            degstr = [num2str(ii),'^{o}'];
             h = text(inr*1.04*cos(pi*(ii)/180), inr*1.04*sin(pi*(ii)/180), degstr);
             set(h,'HorizontalAlignment','center','color',color,'rotation',270+ii+2.5,'fontsize',6);
         end
@@ -406,9 +431,13 @@ function scLength(inr, outr, color)
 VecLen = 0:.002:0.5;
 for ii= 1:length(VecLen)
     if floor((ii-1)/5) ~= (ii-1)/5,
-        plot([inr*cos(pi*(180-100*VecLen(ii)*7.2)/180), 1.015*inr*cos(pi*(180 - 100*VecLen(ii)*7.2)/180)], [inr*sin(pi*(180 - 100*VecLen(ii)*7.2)/180), 1.015*inr*sin(pi*(180 - 100*VecLen(ii)*7.2)/180)], color);
+        h= plot([inr*cos(pi*(180-100*VecLen(ii)*7.2)/180), 1.015*inr*cos(pi*(180 - 100*VecLen(ii)*7.2)/180)], [inr*sin(pi*(180 - 100*VecLen(ii)*7.2)/180), 1.015*inr*sin(pi*(180 - 100*VecLen(ii)*7.2)/180)], color);
+        set(get(get(h,'Annotation'),'LegendInformation'),...
+        'IconDisplayStyle','off'); % Exclude line from legend
     else
-        plot([inr*cos(pi*(180 - 100*VecLen(ii)*7.2)/180), 1.025*inr*cos(pi*(180 - 100*VecLen(ii)*7.2)/180)], [inr*sin(pi*(180 - 100*VecLen(ii)*7.2)/180), 1.025*inr*sin(pi*(180 - 100*VecLen(ii)*7.2)/180)], 'k');
+        h =plot([inr*cos(pi*(180 - 100*VecLen(ii)*7.2)/180), 1.025*inr*cos(pi*(180 - 100*VecLen(ii)*7.2)/180)], [inr*sin(pi*(180 - 100*VecLen(ii)*7.2)/180), 1.025*inr*sin(pi*(180 - 100*VecLen(ii)*7.2)/180)], 'k');
+        set(get(get(h,'Annotation'),'LegendInformation'),...
+        'IconDisplayStyle','off'); % Exclude line from legend
         if VecLen(ii)~=0.5
             h = text(inr*1.04*cos(pi*((180 - 100*VecLen(ii)*7.2))/180), inr*1.04*sin(pi*(180 - 100*VecLen(ii)*7.2)/180), num2str(VecLen(ii),'%0.2f'));
             set(h,'color',color,'rotation',90+3.6-100*VecLen(ii)*7.2,'fontsize',6,'HorizontalAlignment','center');
@@ -416,7 +445,7 @@ for ii= 1:length(VecLen)
     end
 end
 
-function scScales
+function scScales(col)
 %scScales: draws the reflection factor and m scales on the smith chart
 %
 %  SYNOPSIS:
@@ -424,7 +453,7 @@ function scScales
 %     The function is called by scDraw to do so. 
 %     
 %  SYNTAX:
-%     scScales
+%     scScales(col)
 %
 %  INPUT ARGUMENTS:
 %     none
@@ -432,39 +461,56 @@ function scScales
 %  OUTPUT ARGUMENT:
 %     none
 
+if nargin < 1
+    col = 'r';
+end;
 
 % DRAW BASE LINES
 hold on;
 yB = 1.50;
 xB = 0.05;
 
-plot(xB+[0 1], (yB+0.00)*[1 1], 'r');
-plot(xB+[0 1], (yB+0.01)*[1 1], 'r');
+h=plot(xB+[0 1], (yB+0.00)*[1 1], col);
+set(get(get(h,'Annotation'),'LegendInformation'),...
+        'IconDisplayStyle','off'); % Exclude line from legend
+h=plot(xB+[0 1], (yB+0.01)*[1 1], col);
+set(get(get(h,'Annotation'),'LegendInformation'),...
+        'IconDisplayStyle','off'); % Exclude line from legend
 
 % DRAW r DIVISIONS  AND PLACE r TEXT LABELS
 for jj = 0:10
-    plot(xB+[jj,jj]/10, [yB+0.01, yB+.04],'r');
+    h = plot(xB+[jj,jj]/10, [yB+0.01, yB+.04],col);
+    set(get(get(h,'Annotation'),'LegendInformation'),...
+        'IconDisplayStyle','off'); % Exclude line from legend
     if jj ~=10
-        plot(xB+[jj+.5,jj+.5]/10,[yB+0.01, yB+0.03],'r');
+        h = plot(xB+[jj+.5,jj+.5]/10,[yB+0.01, yB+0.03],col);
+        set(get(get(h,'Annotation'),'LegendInformation'),...
+        'IconDisplayStyle','off'); % Exclude line from legend
     end
     h = text(xB+jj/10, yB+0.05,num2str((10-jj)/10,'%1.1f'));
     set(h,'rotation',90,'fontsize',5,'fontname','Times New Roman');
 end
 
 % PUT CAPTION TEXT ETC. FOR REFLECTION FACTOR
-h = text(xB+0.5, yB+0.18, 'Reflection Factor |r|');
+h = text(xB+0.5, yB+0.18, 'Reflection Factor |\Gamma|');
 set (h, 'fontname','Times New Roman','fontsize', 8,'fontname','Times New Roman','HorizontalAlignment','center');
 h = text(xB+0.15, yB+0.18, '<');
-set (h, 'color','b');
-plot(xB+[0.15 0.25], (yB+0.18)*[1 1]);
+set (h, 'color',col);
+h = plot(xB+[0.15 0.25], (yB+0.18)*[1 1], col);
+set(get(get(h,'Annotation'),'LegendInformation'),...
+        'IconDisplayStyle','off'); % Exclude line from legend
 
 
 % DRAW REFLECTED POWER DIVISIONS  AND PLACE TEXT LABELS
 PVal = [1:-0.1:0.2, 0.1:-0.02:0.02, 0.01 0.0];
 for jj = 1: length(PVal)
-    plot(xB+[1-sqrt(PVal(jj)), 1-sqrt(PVal(jj))], [yB, yB-0.03], 'r');
+    h = plot(xB+[1-sqrt(PVal(jj)), 1-sqrt(PVal(jj))], [yB, yB-0.03], col);
+    set(get(get(h,'Annotation'),'LegendInformation'),...
+        'IconDisplayStyle','off'); % Exclude line from legend
     if jj ~=length(PVal)
-        plot(xB+[1-sqrt((PVal(jj)+PVal(jj+1))/2), 1-sqrt((PVal(jj)+PVal(jj+1))/2)], [yB, yB-.02], 'r');
+        h = plot(xB+[1-sqrt((PVal(jj)+PVal(jj+1))/2), 1-sqrt((PVal(jj)+PVal(jj+1))/2)], [yB, yB-.02],col);
+        set(get(get(h,'Annotation'),'LegendInformation'),...
+        'IconDisplayStyle','off'); % Exclude line from legend
     end
     if PVal(jj)>0 && PVal(jj)<0.1
         PrStr = '%1.2f';
@@ -480,8 +526,10 @@ end
 h = text(xB+0.5, yB-0.19, 'Reflected Power');
 set (h, 'fontname','Times New Roman','fontsize', 8,'fontname','Times New Roman','HorizontalAlignment','center');
 h = text(xB+0.15, yB-0.19, '<');
-set (h, 'color','b');
-plot(xB+[0.15 0.25], (yB-0.19)*[1 1]);
+set (h, 'color',col);
+h=plot(xB+[0.15 0.25], (yB-0.19)*[1 1],col);
+set(get(get(h,'Annotation'),'LegendInformation'),...
+        'IconDisplayStyle','off'); % Exclude line from legend
 
 
 % ESTABLISH AND DRAW SCALES FOR m
@@ -495,52 +543,70 @@ rDoMain  = abs((10.^(-mdBMain/20)-1)./(1+10.^(-mdBMain/20)));
 mdBSub   = [1 3 5 7 9 11 12 13 14 16 17 18 19 22 24 26 28];
 rDoSub   = abs((10.^(-mdBSub/20)-1)./(1+10.^(-mdBSub/20)));
 
-plot(-xB-[0 1], (yB+0.00)*[1 1], 'r');
-plot(-xB-[0 1], (yB+0.01)*[1 1], 'r');
+h = plot(-xB-[0 1], (yB+0.00)*[1 1], col);
+set(get(get(h,'Annotation'),'LegendInformation'),...
+        'IconDisplayStyle','off'); % Exclude line from legend
+h = plot(-xB-[0 1], (yB+0.01)*[1 1], col);
+set(get(get(h,'Annotation'),'LegendInformation'),...
+        'IconDisplayStyle','off'); % Exclude line from legend
 
 
 % DRAW m DIVISIONS  AND PLACE m TEXT LABELS
 for jj = 1:length(mValMain)
-    plot(-xB-[rUpMain(jj),rUpMain(jj)], [yB+0.01, yB+.04],'r');
+    h = plot(-xB-[rUpMain(jj),rUpMain(jj)], [yB+0.01, yB+.04],col);
+    set(get(get(h,'Annotation'),'LegendInformation'),...
+        'IconDisplayStyle','off'); % Exclude line from legend
     h = text(-xB-rUpMain(jj), yB+0.05,num2str(mValMain(jj),'%1.1f'));
     set(h,'rotation',90,'fontsize',5,'fontname','Times New Roman');
 end
 for jj = 1:length(mValSub)
-    plot(-xB-[rUpSub(jj),rUpSub(jj)], [yB+0.01, yB+.03],'r');
+    h = plot(-xB-[rUpSub(jj),rUpSub(jj)], [yB+0.01, yB+.03],col);
+    set(get(get(h,'Annotation'),'LegendInformation'),...
+        'IconDisplayStyle','off'); % Exclude line from legend
 end
 
 % PUT CAPTION TEXT ETC. FOR REFLECTION FACTOR
 h = text(-xB-0.5, yB+0.18, 'm = |u_{min}/u_{max}|');
 set (h, 'fontname','Times New Roman','fontsize', 8,'fontname','Times New Roman','HorizontalAlignment','center');
 h = text(-xB-0.145, yB+0.18, '<');
-set (h, 'color','b','rotation',180);
-plot(-xB-[0.15 0.25], (yB+0.18)*[1 1]);
+set (h, 'color',col,'rotation',180);
+h = plot(-xB-[0.15 0.25], (yB+0.18)*[1 1], col);
+set(get(get(h,'Annotation'),'LegendInformation'),...
+        'IconDisplayStyle','off'); % Exclude line from legend
 
 
 
 % DRAW mdB DIVISIONS  AND PLACE mdB TEXT LABELS
 for jj = 1:length(mdBMain)
-    plot(-xB-[rDoMain(jj),rDoMain(jj)], [yB, yB-.03],'r');
+    h = plot(-xB-[rDoMain(jj),rDoMain(jj)], [yB, yB-.03],col);
+    set(get(get(h,'Annotation'),'LegendInformation'),...
+        'IconDisplayStyle','off'); % Exclude line from legend
     h = text(-xB-rDoMain(jj), yB-0.04, num2str(mdBMain(jj), '%.0f'));
     set(h,'rotation',90,'fontsize',5,'fontname','Times New Roman','HorizontalAlignment','right');
 end
-plot(-xB-[1,1], [yB, yB-.03],'r');
+h = plot(-xB-[1,1], [yB, yB-.03],col);
+set(get(get(h,'Annotation'),'LegendInformation'),...
+        'IconDisplayStyle','off'); % Exclude line from legend
 h = text(-xB-1, yB-0.04, '\infty');
 set(h,'rotation',90,'fontsize',5,'HorizontalAlignment','right');
 
 
 for jj = 1:length(mdBSub)
-    plot(-xB-[rDoSub(jj),rDoSub(jj)], [yB, yB-.02],'r');
+    h = plot(-xB-[rDoSub(jj),rDoSub(jj)], [yB, yB-.02],col);
+    set(get(get(h,'Annotation'),'LegendInformation'),...
+        'IconDisplayStyle','off'); % Exclude line from legend
 end
 
 % PUT CAPTION TEXT ETC. FOR mdB
-h = text(-xB-0.5, yB-0.19, 'm in db');
+h = text(-xB-0.5, yB-0.19, 'm_{dB}');
 set (h, 'fontname','Times New Roman','fontsize', 8,'fontname','Times New Roman','HorizontalAlignment','center');
 h = text(-xB-0.75, yB-0.19, '<');
-set (h, 'color','b');
-plot(-xB-[0.65 0.75], (yB-0.19)*[1 1]);
+set (h, 'color',col);
+h = plot(-xB-[0.65 0.75], (yB-0.19)*[1 1], col);
+set(get(get(h,'Annotation'),'LegendInformation'),...
+        'IconDisplayStyle','off'); % Exclude line from legend
 
-function scLabels
+function scLabels(col)
 %scLabels: Draws different standard labels on smith chart
 %
 %  SYNOPSIS:
@@ -550,18 +616,23 @@ function scLabels
 %
 %     
 %  SYNTAX:
-%     scLabels
+%     scLabels(col)
 %
 %  INPUT ARGUMENTS:
-%     none
+%     col : color
 %
 %  OUTPUT ARGUMENT:
 %     none
 
+if nargin < 1
+    col = 'r';
+end;
 % LABEL FOR INNER SCALE
 r  = 1.25;
 th = (145:-.1:140)*pi/180;
-plot (r*cos(th), r*sin(th),'k');
+h = plot (r*cos(th), r*sin(th),col);
+set(get(get(h,'Annotation'),'LegendInformation'),...
+        'IconDisplayStyle','off'); % Exclude line from legend
 h = text(r*cos(th(1)), r*sin(th(1)), '<');
 set(h,'rotation',(th(1)-pi/2)*180/pi,'VerticalAlignment','middle');
 
@@ -575,13 +646,15 @@ end
 % LABEL FOR OUTER SCALE
 r  = 1.35;
 th = (125:-.1:120)*pi/180;
-plot (r*cos(th), r*sin(th),'k');
+h = plot (r*cos(th), r*sin(th),col);
+set(get(get(h,'Annotation'),'LegendInformation'),...
+        'IconDisplayStyle','off'); % Exclude line from legend
 h = text(r*cos(th(length(th))), r*sin(th(length(th))), '<');
 set(h,'rotation',(th(length(th))+pi/2)*180/pi,'VerticalAlignment','middle');
 
 th = [146 145 144]*pi/180;
-h = text(r*cos(th(1)), r*sin(th(1)), 'l');
-set(h,'rotation',(th(1)-pi/2)*180/pi, 'fontsize',9, 'fontname','mt extra');
+h = text(r*cos(th(1)), r*sin(th(1)), 'L');
+set(h,'rotation',(th(1)-pi/2)*180/pi, 'fontsize',9, 'fontname','Times New Roman');
 h = text(r*cos(th(2)), r*sin(th(2)), '/');
 set(h,'rotation',(th(2)-pi/2)*180/pi, 'fontsize',9, 'fontname','Times New Roman');
 h = text(r*cos(th(3)), r*sin(th(3)), '\lambda');
@@ -598,8 +671,8 @@ end
 
 % PRINT ZL =   AT THE BOTTOM RIGHT CORNER
 
-h = text (1.0, -1, 'Z_C =  50 \Omega');
-set(h, 'fontname', 'Times New Roman', 'fontsize', 14,'HorizontalAlignment', 'right');
+% h = text (1.0, -1, 'Z_C =  50 \Omega');
+% set(h, 'fontname', 'Times New Roman', 'fontsize', 14,'HorizontalAlignment', 'right');
 
 
 % DRAW THE TRANSMISSION LINE SYMBOL AT THE BOTTOM LEFT CORNER
@@ -609,37 +682,62 @@ Lx = -1.00;
 Rx = -0.75;
 Ty = -0.95;
 By = -1.05;
-plot([Lx Rx],[Ty Ty], 'r');
-plot([Lx Rx],[By By], 'r');
+h = plot([Lx Rx],[Ty Ty], col);
+set(get(get(h,'Annotation'),'LegendInformation'),...
+        'IconDisplayStyle','off'); % Exclude line from legend
+h =plot([Lx Rx],[By By], col);
+set(get(get(h,'Annotation'),'LegendInformation'),...
+        'IconDisplayStyle','off'); % Exclude line from legend
 
 % CONNECTION POINTS
 Cx = 0.03;
-h=plot([Rx-Cx Rx-Cx Lx Lx],[Ty By Ty By], '.');
+h=plot([Rx-Cx Rx-Cx Lx Lx],[Ty By Ty By], ['.' col]);
 set(h,'linewidth',1.5);
-
+set(get(get(h,'Annotation'),'LegendInformation'),...
+        'IconDisplayStyle','off'); % Exclude line from legend
 
 % CONNECTIVE LINES
 Cy = 0.02;
-plot([Rx Rx],[Ty Ty-Cy], 'r');
-plot([Rx Rx],[By By+Cy], 'r');
+h=plot([Rx Rx],[Ty Ty-Cy], col);
+set(get(get(h,'Annotation'),'LegendInformation'),...
+        'IconDisplayStyle','off'); % Exclude line from legend
+h=plot([Rx Rx],[By By+Cy], col);
+set(get(get(h,'Annotation'),'LegendInformation'),...
+        'IconDisplayStyle','off'); % Exclude line from legend
 
 % IMPEDANCE HORIZONTAL LINES
 Ix = 0.01;
-plot([Rx-Ix Rx+Ix], [By+Cy By+Cy] , 'b');
-plot([Rx-Ix Rx+Ix], [Ty-Cy Ty-Cy] , 'b');
+h=plot([Rx-Ix Rx+Ix], [By+Cy By+Cy] , col);
+set(get(get(h,'Annotation'),'LegendInformation'),...
+        'IconDisplayStyle','off'); % Exclude line from legend
+h=plot([Rx-Ix Rx+Ix], [Ty-Cy Ty-Cy] , col);
+set(get(get(h,'Annotation'),'LegendInformation'),...
+        'IconDisplayStyle','off'); % Exclude line from legend
 
 % IMPEDANCE VERTICAL LINES
-plot([Rx-Ix Rx-Ix], [Ty-Cy By+Cy] , 'b');
-plot([Rx+Ix Rx+Ix], [Ty-Cy By+Cy] , 'b');
+h=plot([Rx-Ix Rx-Ix], [Ty-Cy By+Cy] , col);
+set(get(get(h,'Annotation'),'LegendInformation'),...
+        'IconDisplayStyle','off'); % Exclude line from legend
+h=plot([Rx+Ix Rx+Ix], [Ty-Cy By+Cy] , col);
+set(get(get(h,'Annotation'),'LegendInformation'),...
+        'IconDisplayStyle','off'); % Exclude line from legend
 
 % LABEL R+jX
 h = text (Lx,(Ty+By)/2,'R + jX');
 set (h, 'fontname', 'Times New Roman', 'fontsize', 5);
 
 % LABEL l and lines etc.
-h = text ((Rx+Lx-Cx)/2, By -0.05,'l');
-set (h, 'fontname', 'mt extra', 'fontsize', 5, 'HorizontalAlignment', 'center');
-plot([Lx    (Rx+Lx-Cx)/2-0.01],[By-0.05 By-0.05], 'k');
-plot([Rx-Cx (Rx+Lx-Cx)/2+0.01],[By-0.05 By-0.05], 'k');
-plot([Lx    Lx   ], [By-0.04 By-0.06],'k');
-plot([Rx-Cx Rx-Cx], [By-0.04 By-0.06],'k');
+h = text ((Rx+Lx-Cx)/2, By -0.05,'L');
+set (h, 'fontname', 'Times New Roman', 'fontsize', 5, 'HorizontalAlignment', 'center');
+h=plot([Lx    (Rx+Lx-Cx)/2-0.01],[By-0.05 By-0.05], col);
+set(get(get(h,'Annotation'),'LegendInformation'),...
+        'IconDisplayStyle','off'); % Exclude line from legend
+h=plot([Rx-Cx (Rx+Lx-Cx)/2+0.01],[By-0.05 By-0.05], col);
+set(get(get(h,'Annotation'),'LegendInformation'),...
+        'IconDisplayStyle','off'); % Exclude line from legend
+h=plot([Lx    Lx   ], [By-0.04 By-0.06],col);
+set(get(get(h,'Annotation'),'LegendInformation'),...
+        'IconDisplayStyle','off'); % Exclude line from legend
+h=plot([Rx-Cx Rx-Cx], [By-0.04 By-0.06],col);
+set(get(get(h,'Annotation'),'LegendInformation'),...
+        'IconDisplayStyle','off'); % Exclude line from legend

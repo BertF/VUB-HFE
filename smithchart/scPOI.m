@@ -35,6 +35,7 @@ function [u, v] = scPOI(r, x)
 %     Mohammad Ashfaq - (31-05-2000)
 %     Mohammad Ashfaq - (13-04-2006) Modified (included examples)
 
+
 if x~=0,
     %IF THE MATLAB MAP TOOLBOX FUNCTION circcirc EXISTS, USE THAT
     if exist('circcirc','file')

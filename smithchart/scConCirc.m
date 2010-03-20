@@ -1,4 +1,4 @@
- function scConCirc(r,LinCol)
+ function scConCirc(r,LinCol,hide)
  %scConCirc: draws concentric circles about the origin
 %
 %  SYNOPSIS:
@@ -7,11 +7,12 @@
 %     See also scDraw, scInv, scMove, scMatchCirc  
 %     
 %  SYNTAX:
-%     scConCirc(r,color)
+%     scConCirc(r,color, [hide])
 %
 %  INPUT ARGUMENTS:
 %     r      : radius of the circle
 %     LinCol : desired color of the arc, optional, default = 'm', magenta
+%     hide   : optional to hide the legend entries
 %
 %  OUTPUT ARGUMENT:
 %     none
@@ -27,12 +28,23 @@
 %
 %     Mohammad Ashfaq - (31-05-2000)
 %     Mohammad Ashfaq - (13-04-2006) Modified (example included)
+%     Egon Geerardyn  - (20-03-2010) Added hide
 %
  
- if nargin == 1
+ if nargin < 2
     LinCol = 'm';
  end
+ if nargin < 3
+    hide = 0;
+ end;
+ 
 
  x = linspace(-r,r,200);
- plot(x, sqrt(r^2-x.^2),LinCol);
- plot(x,-sqrt(r^2-x.^2),LinCol);
+ h1 = plot(x, sqrt(r^2-x.^2),LinCol); 
+ h2 = plot(x,-sqrt(r^2-x.^2),LinCol);
+ if hide
+     set(get(get(h1,'Annotation'),'LegendInformation'),...
+         'IconDisplayStyle','off'); % Exclude line from legend
+     set(get(get(h2,'Annotation'),'LegendInformation'),...
+         'IconDisplayStyle','off'); % Exclude line from legends
+ end;
