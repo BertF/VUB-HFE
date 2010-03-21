@@ -8,6 +8,9 @@
  \usepackage[T1]{fontenc}
  \usepackage[usenames]{color}
  \usepackage[pdftex,pdfpagelabels]{hyperref}
+ \usepackage[all]{hypcap}
+ \usepackage[final]{pdfpages}
+ 
  \usepackage{amssymb}
 
  %% CUSTOM COLORS
@@ -26,6 +29,12 @@
  \newcommand{\tbd}[1]{{\color{red}{#1}}} % tbd: to be done
  \newcommand{\conj}[1]{#1^{\star}}
  \newcommand{\norm}[1]{\left| #1 \right|}
+
+ \def\figureautorefname{figuur}
+ \def\tableautorefname{tabel}
+
+
+ \newcommand{\refitem}[2]{\item #1\ \ref{#2}, zie ook pagina \pageref{#2}.}
 
  %% CUSTOM ENVIRONMENTS
  \newenvironment{quotationgr}{\begin{quotation}\color{grey}}{\end{quotation}}
@@ -65,9 +74,8 @@
   \maketitlepage
   \newpage
   \tableofcontents
-  \listoffigures
-  \listoftables
-  De broncode en een digitale versie van het verslag zijn beschikbaar op \cite{github}.
+
+
   \newpage
   \part{Versterker}
   \label{sec:Amp}
@@ -81,10 +89,30 @@
     \input{antenne.inc.tex}
     
   \newpage
-
-  \bibliographystyle{plain}
-  \addcontentsline{toc}{section}{Referenties}
-  \bibliography{referenties}
+  \part{Informatie}
+  \label{sec:info}
+  \sectionInv{Lijst van figuren}
+  \listoffigures
+  \sectionInv{Lijst van tabellen}
+  \listoftables
   
+  \bibliographystyle{plain}
+  \sectionInv{Referenties}
+  \bibliography{referenties}
+
+
+  \sectionUnN{Bijlagen}
+  \paragraph{Broncode}
+  De broncode en een digitale versie van het verslag zijn beschikbaar op
+    \cite{github}.
+
+  \paragraph{Figuren}
+  Voor de duidelijkheid zijn enkele figuren zoals Smith Charts ook in de
+  bijlagen aanwezig.
+    \begin{enumerate}
+      \refitem{Figuur}{fig:gainCirkels}
+    \end{enumerate}
+
+    \includepdf[pages=-]{fig/gaincirkels.pdf}
   
 \end{document}

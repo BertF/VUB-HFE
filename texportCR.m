@@ -4,7 +4,7 @@ fid = fopen(file,'w');
 
 fprintf(fid,'\\[\n');
 fprintf(fid,'\t%s =',nC);
-fprintf(fid,'\t%6.2f + j %6.2f',real(C), imag(C));
+fprintf(fid,'\t%6.2f %+6.2f j',real(C), imag(C));
 fprintf(fid,'\\qquad \\qquad \\qquad');
 fprintf(fid,'\t%s =',nR);
 fprintf(fid,'\t%6.2f',R);

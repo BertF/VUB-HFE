@@ -1,28 +1,13 @@
 % VERSTERKER
-
-    In dit verslag wordt het designproces van hoogfrequente single-stage
-    versterker besproken die gerealiseerd wordt in common emitter-opstelling.
-
-    Hierbij is de gebruikte NPN-transistor een BFR91A en werd
-    het werkingspunt in \cite{lesWendy} gespecificeerd zoals weergegeven in
-    \autoref{tbl:OPSpec}.
-      \begin{table}[h!]
-        \begin{center}
-
-        \caption{DC werkingspunt transistor}
-        \label{tbl:OPSpec}
-        \input{res/OPSpec.inc.tex}
-        \end{center}
-      \end{table} 
-    
-    Voor deze werkingsfrequentie werden de $S$-parameters gegeven in \cite{lesWendy}:
+\section{Opdracht}
+    We designen een single-stage common emitter-versterker met werkingsfrequentie $f_0$
+    met als centrale NPN-transistor de BFR91A. Voor deze werkingsfrequentie werden
+    de $S$-parameters gegeven in \cite{lesWendy}: 
     \input{res/NPN-S.inc.tex}
     
 \section{Stabiliteit}
   
-    We controleren de nodige en voldoende voorwaarde voor stabiliteit van de versterker
-    door middel van formules 11.71 en 11.72 van \cite{Pozar}.
-    Dit is het Rollet-stabiliteitscriterium.
+    We controleren de nodige en voldoende voorwaarde voor stabiliteit van de versterker door middel van formules 11.71 en 11.72 van \cite{Pozar}. Dit is het Rollet-stabiliteitscriterium.
     \[
       K = \frac{1 - \left| S_{11} \right|^2 - \left| S_{22} \right|^2 + \left| \Delta \right|^2}{2 \left| S_{12}S_{21} \right|} > 1
     \]
@@ -49,7 +34,7 @@
     Dit geeft aanleiding tot volgende waarden:
     \input{res/stabcirkelload.inc.tex}
     \input{res/stabcirkelsource.inc.tex}
-    Op \autoref{fig:stabCirkels} kunnen deze cirkels ge\"inspecteerd worden.
+    Op figuur \ref{fig:stabCirkels} kunnen deze cirkels ge\"inspecteerd worden.
     \begin{figure}[!h]
       \centering
       \includegraphics[width=\textwidth,keepaspectratio=true]{fig/stabiliteitscirkels.pdf}  
@@ -118,17 +103,9 @@
   \[
     R = \frac{\sqrt{\norm{S_{12} S_{21}}^2 - 2 K \norm{S_{12} S_{21} \frac{\norm{S_{21}}^2}{G_p} + \frac{\norm{S_{21}}^2}{G_p} }}}{\norm{S_{22}}^2 - \norm{\Delta}^2 + \frac{\norm{S_{21}}^2}{G_p}}
   \]
-  Voor een versterking van enkele verschillende versterkingen $G_p$ bekomen we
-  in deze formule de waarden weergegeven in \autoref{tbl:gainCirkels}.
-    \begin{table}[h!]
-    \begin{center}
-    \caption{Constante gaincirkels}
-    \label{tbl:gainCirkels}
-    \input{res/gaincirkeltbl.inc.tex}
-    \end{center}
-    \end{table}
-  
-  Op de Smith Chart worden deze constante gain cirkels voor enkele verschillende versterkingen weergegeven op \autoref{fig:gainCirkels}.
+  Voor een versterking van $G_p = 3dB$ bekomen we volgende waarden:
+  \input{res/gaincirkel3db.inc.tex}
+  Op de Smith Chart worden deze constante gain cirkels voor enkele verschillende versterkingen weergegeven op figuur \ref{fig:gainCirkels}.
   \begin{figure}[!h]
       \centering
       \includegraphics[width=\textwidth,keepaspectratio=true]{fig/gaincirkels.pdf}  

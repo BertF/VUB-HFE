@@ -47,9 +47,9 @@ elseif abs(K) > 1
 end;
 
 Gtumax=(abs(NPN.S21)^2)./((1-abs(NPN.S11)^2)*(1-abs(NPN.S22)^2));
-Gtmax = maxGain(NPN.S,match.Ts,match.Tl);
+%Gtmax = maxGain(NPN.S,match.Ts,match.Tl);
 
-Gtmax = maxGain2(NPN.S,K);
+Gtmax = maxGain2(NPN.S,K); % eenvoudigere formule
 
 %% gain circles
 [gs gl]=normalized_gain(match,NPN.S);
@@ -60,16 +60,21 @@ Gtmax = maxGain2(NPN.S,K);
 Gp= [10.^([3 2 1]/20) 0.5*Gtmax 0.99*Gtmax Gtmax];
 [C, R] = gainCircle(NPN.S,Gp,'in',K);
 figure;
-plot([circle(0,1,100) circle(0.5,0.5,100)],'-k','DisplayName','Smith Chart'); hold on;
+scDraw(0); hold on;
 color = 'rgbcmk'; 
+
+h = plot([0 C(end)],'--y','DisplayName','Drager');
+nolegend(h);
+
 for i = 1:numel(C)
-    plot(circle(C(i),R(i),100),color(i),'DisplayName',['Gaincirkel = ' num2str(db(Gp(i))) ' dB']);
+    plot(circle(C(i),R(i),100),color(i),'LineWidth',2,'DisplayName',['Gaincirkel: ' num2str(db(Gp(i))) ' dB']);
 end;
 legend(gca,'show'); axis square; grid on;
 for i = 1:numel(C)
-    plot(C(i),['*' color(i)]);
+    h = plot(C(i),['*' color(i)]);
+    nolegend(h);
 end;
 title('Gaincirkels');
 printpdffig(gcf, [10,10], 'verslag/fig/gaincirkels.pdf');
-texportCR(C(1),R(1),'C_L','R_L','verslag/res/gaincirkel3db.inc.tex');
+texportCRs(Gp,C,R,'verslag/res/gaincirkeltbl.inc.tex');
   

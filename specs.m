@@ -12,9 +12,11 @@ f0 = 1445e6;            %[Hz] working frequency
 
 %% DC operation point amplifier
 OPSpec = struct('name','DC Operating Point Specifications');
+OPSpec.group= 1;
 OPSpec.f0   = f0;
 OPSpec.Vce  = 5;        %[V] collector emittor voltage
 OPSpec.Ic   = 5e-3;     %[A] quiescent collector current
+texportSpec(OPSpec)
 
 %% NPN transistor for amplifier
 NPN = struct('name', 'NPN Transistor values');
