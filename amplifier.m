@@ -79,7 +79,11 @@ printpdffig(gcf, [10,10], 'verslag/fig/gaincirkels.pdf');
 texportCRs(Gp,C,R,'verslag/res/gaincirkeltbl.inc.tex');
 
 %% Matching input and output
+close all;
 figure;
 [h] = matcher(0,match.Ts,0,0);
-printpdffig(h,[10 10],'test.pdf');
-% [h, match.in] = matcher(TI,TR,0,0);
+printpdffig(h,[10 10],'verslag/res/matchSource.pdf');
+figure;
+[h] = matcher(0,match.Tl,0,0);
+printpdffig(h,[10 10],'verslag/res/matchLoad.pdf');
+

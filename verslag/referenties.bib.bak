@@ -48,6 +48,18 @@
   author = {E.H. Fooks and R.A. Zakarevivius}
 }
 
+@ELECTRONIC{ece3300,
+  author = {Cynthia Furse},
+  month = {sep},
+  year = {2009},
+  title = {ECE 3300 Introduction to Electromagnetics},
+  howpublished = {\link{http://www.ece.utah.edu/~ece3300/}},
+  organization = {University of Utah},
+  url = {http://www.ece.utah.edu/~ece3300/},
+  owner = {APLPrj02},
+  timestamp = {2010.03.22}
+}
+
 @ELECTRONIC{github,
   author = {Egon Geerardyn and Bert Follon},
   year = {2010},
@@ -120,7 +132,8 @@
   title = {Hoogfrequent elektronica en antennes},
   publisher = {VUB},
   year = {2010},
-  author = {Yves Rolain and Alain Barel}
+  author = {Yves Rolain and Alain Barel},
+  url = {http://aiv.vub.ac.be/opaweb/index?page=variantoo&omaNummer=12615&doelgroep=TS&language=nl}
 }
 
 @BOOK{sze,
