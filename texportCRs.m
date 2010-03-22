@@ -1,5 +1,5 @@
 function texportCR(Gp,C,R,file)
-%TEXPORT Export C and R to tex file
+%TEXPORT Export multiple Cs and Rs to table tex file
 fid = fopen(file,'w');
 n = numel(C);
 

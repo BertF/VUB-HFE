@@ -52,7 +52,7 @@ Gtumax=(abs(NPN.S21)^2)./((1-abs(NPN.S11)^2)*(1-abs(NPN.S22)^2));
 Gtmax = maxGain2(NPN.S,K); % eenvoudigere formule
 
 %% gain circles
-[gs gl]=normalized_gain(match,NPN.S);
+[gs gl] = normalized_gain(match,NPN.S);
 
 [CS, RS] = gainCircle(NPN.S,gs,'in');
 [CL, RL] = gainCircle(NPN.S,gl,'out');
@@ -77,4 +77,9 @@ end;
 title('Gaincirkels');
 printpdffig(gcf, [10,10], 'verslag/fig/gaincirkels.pdf');
 texportCRs(Gp,C,R,'verslag/res/gaincirkeltbl.inc.tex');
-  
+
+%% Matching input and output
+figure;
+[h] = matcher(0,match.Ts,0,0);
+printpdffig(h,[10 10],'test.pdf');
+% [h, match.in] = matcher(TI,TR,0,0);
