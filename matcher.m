@@ -18,24 +18,27 @@ function [ H, res ] = matcher(Ti, Tr, mode, file)
   
   %% juiste snijpunt kiezen
   [x,y] = POI(0.5,0.5,0,norm(Gamma1));
-  %FIXME: juiste punt kiezen: kleinste hoek
-  u1 = x(2); v1 = y(2);
-  g = u1 + 1i*v1;
-  Gamma2 = g;
+  ang = zeros(size(x));
+  for i = 1:numel(x)
+      ang(i) = anglebetween(Gamma1,x(i) + 1i * y(i),0,-1);
+  end;
+  disp(ang);
+  i = find(ang == min(ang));
+  Gamma2 = x(i) + y(i) * 1i;
   
   %% snijpunt gekozen
   plot(Gamma2,'*g','DisplayName','\Gamma_2');
-  plot(partcircle(0,Tr,anglebetween(Tr,g',0)),'-b','LineWidth',2,'DisplayName','TL_1');
+  plot(partcircle(0,Tr,anglebetween(Tr,Gamma2,0,-1)),'-b','LineWidth',2,'DisplayName','TL_1');
   
-  h = plot(ray(0,g'),'--b','DisplayName','hulplijn \Gamma_2');
+  h = plot(ray(0,Gamma2'),'--b','DisplayName','hulplijn \Gamma_2');
   nolegend(h);
   
   %% lengte TL1 bepalen
-  ang = anglebetween(Tr,x(1)+1i*y(1))
+  ang = anglebetween(Tr,Gamma2,0,-1);
   angDeg = ang/(2*pi)*360
   
   %% eigenschappen van snijpunt bepalen
-  Y2 = getZ(g);
+  Y2 = getZ(Gamma2);
   Y3 = 1i*imag(Y2);
   Gamma3 = getG(Y3);
   plot(Gamma3,'*m','DisplayName','\Gamma_3');

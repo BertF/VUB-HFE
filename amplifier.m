@@ -86,6 +86,8 @@ printpdffig(h,[10 10],'verslag/res/matchSource.pdf');
 figure;
 [h] = matcher(0,match.Tl,0,0);
 printpdffig(h,[10 10],'verslag/res/matchLoad.pdf');
+
+%% manueel
 % input netwerk
 lengteverbindingin=0.4325-0.326; %verbinding bjt 
 imaginair_tecompin=1.4;
@@ -95,5 +97,25 @@ tweemaalin_lengte=0.096;
 lengteverbindingout=0.1961-0.184; %verbinding bjt
 imaginair_tecompout=1.9;
 halvetecompout=imaginair_tecompout/2;
-tweemaalin_lengte=0.3849-0.25;
+tweemaalout_lengte=0.3849-0.25;
+
+%% DC bias netwerk
+% architectuur zoals in Gonzalez fig. 3.9.2b (p. 287 PDF)
+OPSpec.Vcc=OPSpec.Vce *2 - NPN.Vbe;
+OPSpec.Vbb=0.1 * OPSpec.Vcc;
+OPSpec.Ib=OPSpec.Ic/NPN.hFE;
+OPSpec.Rb=(OPSpec.Vbb-NPN.Vbe)/OPSpec.Ib;
+OPSpec.Rb2 = 10^(2/12) * 1000;
+OPSpec.Ibb = OPSpec.Vbb/OPSpec.Rb2;
+if OPSpec.Ibb < 10 * OPSpec.Ib
+    warning(0,'te kleine Ibb!');
+end;
+%OPSpec.Rb2=OPSpec.Vbb/OPSpec.Ibb;
+OPSpec.Rc=(OPSpec.Vcc-OPSpec.Vce)/(OPSpec.Ic+OPSpec.Ibb+OPSpec.Ib);
+OPSpec.Rb1=(OPSpec.Vce-OPSpec.Vbb)/(OPSpec.Ibb+OPSpec.Ib);
+texportDCBias(OPSpec,NPN,'verslag/res/DCBias.inc.tex');
+
+%%
+
+
 

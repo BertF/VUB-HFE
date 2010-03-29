@@ -28,6 +28,9 @@ NPN.S21     =  1.369 + 1i * 1.397; %
 NPN.S22     =  0.355 - 1i * 0.318; %
 NPN.S       = [ NPN.S11 NPN.S12    % S parameter matrix
                 NPN.S21 NPN.S22 ];
+NPN.Vbe     = 0.7;                 % [V] base emitter voltage
+NPN.Icmax   = 35e-3;               % [A] maximal collector current
+NPN.hFE     = 100;                 % [] nominal current gain
 texportNPN(NPN);
 
 %% PCB for amplifier

@@ -3,10 +3,10 @@ function [ ang ] = anglebetween(A,B,O,dir)
 %   Detailed explanation goes here
 if nargin < 3
     O = 0;
-    dir = '1';
+    dir = 1;
 end;
 if nargin < 4
-    dir = '1';
+    dir = 1;
 end;
 a = A - O;
 b = B - O;
