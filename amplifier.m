@@ -93,11 +93,18 @@ lengteverbindingin=0.4325-0.326; %verbinding bjt
 imaginair_tecompin=1.4;
 halvetecompin=imaginair_tecompin/2;
 tweemaalin_lengte=0.096;
+Einstub = elecLength(tweemaalin_lengte); % elec. lengte in degree
+Einlijn = elecLength(lengteverbindingin); % elek. lengte in degree
 % output netwerk
 lengteverbindingout=0.1961-0.184; %verbinding bjt
 imaginair_tecompout=1.9;
 halvetecompout=imaginair_tecompout/2;
 tweemaalout_lengte=0.3849-0.25;
+Eoutstub = elecLength(tweemaalout_lengte); % elec. lengte in degree
+Eoutlijn = elecLength(lengteverbindingout); % elek. lengte in degree
+disp('Elektrische lengtes' );
+disp([Einstub Einlijn]);
+disp([Eoutstub Eoutlijn]);
 
 %% DC bias netwerk
 % architectuur zoals in Gonzalez fig. 3.9.2b (p. 287 PDF)
