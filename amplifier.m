@@ -86,4 +86,14 @@ printpdffig(h,[10 10],'verslag/res/matchSource.pdf');
 figure;
 [h] = matcher(0,match.Tl,0,0);
 printpdffig(h,[10 10],'verslag/res/matchLoad.pdf');
+% input netwerk
+lengteverbindingin=0.4325-0.326; %verbinding bjt 
+imaginair_tecompin=1.4;
+halvetecompin=imaginair_tecompin/2;
+tweemaalin_lengte=0.096;
+% output netwerk
+lengteverbindingout=0.1961-0.184; %verbinding bjt
+imaginair_tecompout=1.9;
+halvetecompout=imaginair_tecompout/2;
+tweemaalin_lengte=0.3849-0.25;
 
