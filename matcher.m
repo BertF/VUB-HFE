@@ -6,7 +6,7 @@ function [ res, H ] = matcher(Tr)
   H = scDraw(0); hold on;
   dir = -1; % towards load
   %% reflectiefactor uitzetten op SC
-  Gamma1 = Tr;
+  Gamma1 = -Tr;
   plot(Gamma1,'*b','DisplayName','\Gamma_1');
   
   h = plot(ray(0,Gamma1),'--b','DisplayName','hulplijn \Gamma_1');
@@ -27,13 +27,13 @@ function [ res, H ] = matcher(Tr)
   
   %% snijpunt gekozen
   plot(Gamma2,'*g','DisplayName','\Gamma_2');
-  plot(partcircle(0,Tr,Gamma2,dir),'-b','LineWidth',2,'DisplayName','TL_1');
+  plot(partcircle(0,Gamma1,Gamma2,dir),'-b','LineWidth',2,'DisplayName','TL_1');
   
   h = plot(ray(0,Gamma2),'--g','DisplayName','hulplijn \Gamma_2');
   nolegend(h);
   
   %% lengte TL1 bepalen
-  ang = anglebetween(Tr,Gamma2,0,-1);
+  ang = anglebetween(Gamma1,Gamma2,0,-1);
   angDeg = ang/(2*pi)*360;
   
   %% eigenschappen van snijpunt bepalen
