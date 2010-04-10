@@ -81,11 +81,12 @@ texportCRs(Gp,C,R,'verslag/res/gaincirkeltbl.inc.tex');
 %% Matching input and output
 close all;
 figure;
-[h] = matcher(0,match.Ts,0,0);
-printpdffig(h,[10 10],'verslag/res/matchSource.pdf');
+[match.in, h] = matcher(match.Ts);
+printpdffig(h,[10 10],'verslag/fig/matchSource.pdf');
 figure;
-[h] = matcher(0,match.Tl,0,0);
-printpdffig(h,[10 10],'verslag/res/matchLoad.pdf');
+[match.out, h] = matcher(match.Tl);
+printpdffig(h,[10 10],'verslag/fig/matchLoad.pdf');
+texportMatch(match);
 
 %% manueel
 % input netwerk

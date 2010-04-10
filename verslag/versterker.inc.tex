@@ -156,6 +156,40 @@
   
 
 \section{Matchingnetwerken}
+  De matching gebeurt zowel voor ingang als uitgang gelijkaardig, vandaar ook
+  dat er gekozen is om dit via MATLAB te implementeren in de functie \texttt{matcher}.
+
+  \tbd{Figuur schakeling}
+  \tbd{Precedure invoegen}
+
+  Voor de ingang en uitgang kunnen de bijhorende smith charts op respectievelijk
+  figuur \ref{fig:matchIn} en figuur \ref{fig:matchOut} gevolgd worden. Deze zijn
+  tevens in de bijlagen aanwezig voor de duidelijkheid.
+
+  \begin{figure}[!htp]
+    \centering
+    \includegraphics[width=\textwidth,keepaspectratio=true]{fig/matchSource.pdf}
+    \caption{Smith Chart matchingnetwerk aan de ingang}
+    \label{fig:matchIn}
+  \end{figure}
+
+  \begin{figure}[!hbp]
+    \centering
+    \includegraphics[width=\textwidth,keepaspectratio=true]{fig/matchLoad.pdf}
+    \caption{Smith Chart matchingnetwerk aan de uitgang}
+    \label{fig:matchOut}
+  \end{figure}
+  
+  De numerieke resultaten van deze matching wordt weergegeven in tabel \ref{tbl:Matching}.
+
+  \begin{table}[h!]
+     \begin{center}
+       \caption{Matchingnetwerken}
+       \label{tbl:Matching}
+       \input{res/matchtable.inc.tex}
+     \end{center}
+  \end{table}
+
 
 \section{DC biasnetwerk}
   Om het DC Bias-netwerk te designen maken we gebruik van \cite{Gonzalez}
