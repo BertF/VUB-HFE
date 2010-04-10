@@ -12,3 +12,5 @@ Thumbs.db
 .dropbox
 *.bak
 *.bib$
+*.backup
+*.lof

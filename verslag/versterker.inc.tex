@@ -19,7 +19,6 @@
     \input{res/NPN-S.inc.tex}
     
 \section{Stabiliteit}
-  
     We controleren de nodige en voldoende voorwaarde voor stabiliteit van de versterker
     door middel van formules 11.71 en 11.72 van \cite{Pozar}.
     Dit is het Rollet-stabiliteitscriterium.
@@ -32,12 +31,23 @@
     \[
       \Delta = \det{S} = S_{11}S_{22} - S_{12}S_{21}
     \]
-    
-    Aan deze voorwaarden is voldaan, zodat we kunnen besluiten dat de te realiseren versterker onconditioneel stabiel is.
+    Numeriek geeft dit:
+    \input{res/rollet.inc.tex}
+    Aan de stabiliteitsvoorwaarden is voldaan, zodat men kan besluiten dat de te
+    realiseren versterker onconditioneel stabiel is.
   \section{Stabiliteitscirkels}
     Vermits de versterker onconditioneel stabiel is, zullen de stabiliteitscirkels
     ofwel de volledige Smith Chart omvatten ofwel buiten de Smith Chart vallen.
-    \tbd{BESPRE CIRKEL = 1}
+    Toch wordt dit nogmaals gecontroleerd.
+
+    De stabiliteitscirkels geven de reflectiefactoren (en dus ook de matching-
+    impedanties) aan waarvoor de hele schakeling nog net stabiel is voor de
+    opgegeven werkingsfrequentie. Onvoorwaardelijke stabiliteit zegt dus enkel
+    dat indien de versterker voorzien wordt van passieve netwerken aan de in-
+    en uitgang dat er geen oscillator op de werkingsfrequentie gemaakt is.
+    Wat echter niet aangetoond wordt met dit stabiliteitscriterium is de
+    afwezigheid van oscillaties op andere frequenties!
+    
     Met formules 11.68 en 11.69 uit \cite{Pozar}, worden middelpunt $C$ en
     straal $R$ van de stabiliteitscirkels bepaald.
     \[
@@ -105,16 +115,14 @@
   \]
   In numerieke waarden, geven deze vergelijkingen dus:
     \input{res/unilateral.inc.tex}
-  Vermits deze ongelijkheden ongeldig zijn, gebruiken we de bilaterale vormen.
-  Maar vermits deze waarden niet te veel afwijken, zal een unilaterale
-  benadering geen totaal foute waarden geven.
+  Vermits deze ongelijkheden geldig zijn, mag de unilaterale benadering gebruikt
+  worden.
   
   
 
 \section{Berekening van maximale versterking}
-  Aan de hand van \cite{Pozar} en \cite{Gonzalez} bepalen we de maximale
-  versterking die mogelijk is met deze transistor voor
-  de opgegeven werkingsfrequentie.
+  Aan de hand van \cite{Pozar} en \cite{Gonzalez} wordt de maximale transducergain
+  op de gegeven werkingsfrequentie bepaald.
   
   In appendix E van \cite{Gonzalez} werd bewezen dat bovenstaande uitdrukking
   voor een onconditioneel stabiele transistor (K > 1) en simultane input- en
@@ -126,7 +134,7 @@
   
   
   \section{Bepaling van de constante gaincirkels}
-  Uit formules 5.96 en 5.100 van \cite{lessen} kunnen we het middelpunt en de
+  Uit formules 5.96 en 5.100 van \cite{lessen} kan men het middelpunt en de
   straal van de constante gaincirkels voor gain $G_p$ bepalen.
   \[
     C = \frac{\left( \conj{S_{22}} - S_{11} \conj{\Delta} \right)}{\norm{S_{22}}^2 - \norm{\Delta}^2 + \frac{\norm{S_{21}}^ 2}{G_p}}
@@ -134,7 +142,7 @@
   \[
     R = \frac{\sqrt{\norm{S_{12} S_{21}}^2 - 2 K \norm{S_{12} S_{21} \frac{\norm{S_{21}}^2}{G_p} + \frac{\norm{S_{21}}^2}{G_p} }}}{\norm{S_{22}}^2 - \norm{\Delta}^2 + \frac{\norm{S_{21}}^2}{G_p}}
   \]
-  Voor een versterking van enkele verschillende versterkingen $G_p$ bekomen we
+  Voor een versterking van enkele verschillende versterkingen $G_p$ bekomt men
   in deze formule de waarden weergegeven in \autoref{tbl:gainCirkels}.
     \begin{table}[h!]
     \begin{center}
@@ -159,21 +167,30 @@
   De matching gebeurt zowel voor ingang als uitgang gelijkaardig, vandaar ook
   dat er gekozen is om dit via MATLAB te implementeren in de functie \texttt{matcher}.
 
-  \tbd{Figuur schakeling}
-  \tbd{Precedure invoegen}
+  Zoals opgelegd in \cite{lesWendy} wordt gebruikgemaakt van een variatie op de
+  single stub matching zoals weergegeven in figuur \ref{fig:schakelingMatch}.
+
+  \begin{figure}[!hb]
+    \centering
+    \includegraphics[keepaspectratio=true]{fig/matching.pdf}
+    \caption{Schakeling matchingnetwerken}
+    \label{fig:schakelingMatch}
+  \end{figure}
+
+  \tbd{Procedure invoegen}
 
   Voor de ingang en uitgang kunnen de bijhorende smith charts op respectievelijk
   figuur \ref{fig:matchIn} en figuur \ref{fig:matchOut} gevolgd worden. Deze zijn
   tevens in de bijlagen aanwezig voor de duidelijkheid.
 
-  \begin{figure}[!htp]
+  \begin{figure}
     \centering
     \includegraphics[width=\textwidth,keepaspectratio=true]{fig/matchSource.pdf}
     \caption{Smith Chart matchingnetwerk aan de ingang}
     \label{fig:matchIn}
   \end{figure}
 
-  \begin{figure}[!hbp]
+  \begin{figure}
     \centering
     \includegraphics[width=\textwidth,keepaspectratio=true]{fig/matchLoad.pdf}
     \caption{Smith Chart matchingnetwerk aan de uitgang}
@@ -192,7 +209,21 @@
 
 
 \section{DC biasnetwerk}
-  Om het DC Bias-netwerk te designen maken we gebruik van \cite{Gonzalez}
+  Om het DC Bias-netwerk te designen kunnen vele verschillende soorten
+  netwerken gebruikt worden. Hier werd de aanpak uit \cite{Gonzalez}
+  gebruikt. Volgens deze bron is dit netwerk (figuur \ref{fig:DCBias} goed geschikt door
+  \begin{itemize}
+   \item 
+  \end{itemize}
+
+  \begin{figure}
+    \centering
+    \includegraphics[keepaspectratio=true]{fig/DCBias.pdf}
+    \label{fig:DCBias}
+    \caption{Biasnetwerk}
+  \end{figure}
+
+
 
 \section{Simulaties}
   \subsection{Ideale transmissielijnen}

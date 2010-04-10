@@ -12,7 +12,7 @@ function [ res, H ] = matcher(Tr)
   h = plot(ray(0,Gamma1),'--b','DisplayName','hulplijn \Gamma_1');
   nolegend(h);
   
-  h = plot(circle(0,norm(Gamma1),100),'-b','DisplayName','hulplijn TL_1');
+  h = plot(circle(0,norm(Gamma1),100),'-.b','DisplayName','hulplijn TL_1');
   nolegend(h);
   
   %% juiste snijpunt kiezen
@@ -29,7 +29,7 @@ function [ res, H ] = matcher(Tr)
   plot(Gamma2,'*g','DisplayName','\Gamma_2');
   plot(partcircle(0,Tr,Gamma2,dir),'-b','LineWidth',2,'DisplayName','TL_1');
   
-  h = plot(ray(0,Gamma2),'--b','DisplayName','hulplijn \Gamma_2');
+  h = plot(ray(0,Gamma2),'--g','DisplayName','hulplijn \Gamma_2');
   nolegend(h);
   
   %% lengte TL1 bepalen
@@ -40,18 +40,20 @@ function [ res, H ] = matcher(Tr)
   Y2 = getZ(Gamma2);
   Y3 = 1i*imag(Y2);
   Gamma3 = getG(Y3);
-  plot(Gamma3,'*m','DisplayName','\Gamma_3');
-  h = plot(ray(0,Gamma3),'--m');
+  plot(Gamma3,'*c','DisplayName','\Gamma_3');
+  h = plot(ray(0,Gamma3),'--c');
   nolegend(h);
   
   %% matchingspecifiek: parallelmatch met symmetrische stubs forceren
   Y4 = Y3/2;
   Gamma4 = getG(Y4);
   plot(Gamma4,'*m','DisplayName','\Gamma_4');
+  h = plot(ray(0,Gamma4),'--m');
+  nolegend(h);
   
   %% elektrische lengte stubs bepalen
-  stubterm1 = 'open'; Gstub1 = 1;
-  stubterm2 = 'short'; Gstub2 = -1; 
+  stubterm1 = 'open'; Gstub1 = 1+0*1i;
+  stubterm2 = 'short'; Gstub2 = -1+0*1i; 
   
   angstub1 = anglebetween(Gamma4,Gstub1,0,dir);
   angstub2 = anglebetween(Gamma4,Gstub2,0,dir);
@@ -64,7 +66,8 @@ function [ res, H ] = matcher(Tr)
       ang2 = angstub2;
       Gstub = Gstub2;
   end;
-  plot(partcircle(0,Gamma4,Gstub,dir),'c','LineWidth',2,'DisplayName','TL_2 (stub)');
+  plot(Gstub,0,'*k','DisplayName','Terminatie');
+  plot(partcircle(0,Gamma4,Gstub,dir),'m','LineWidth',2,'DisplayName','TL_2 (stub)');
   
   ang2Deg = ang2/(2*pi)*360;
   

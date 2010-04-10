@@ -10,6 +10,7 @@ disp(['K = ' num2str(K) ' |Delta| =' num2str(Delta)]);
 if ((K>1) && norm(Delta) < 1)
     disp('NVV Stabiliteit voldaan');
 end;
+texportRollet(K,Delta,'verslag/res/rollet.inc.tex');
 
 %% Stabiliteitscirkels
 [CL, RL] = stabCircle(NPN.S,'load');
@@ -81,10 +82,10 @@ texportCRs(Gp,C,R,'verslag/res/gaincirkeltbl.inc.tex');
 %% Matching input and output
 close all;
 figure;
-[match.in, h] = matcher(match.Ts);
+[match.in, h] = matcher(NPN.S11');
 printpdffig(h,[10 10],'verslag/fig/matchSource.pdf');
 figure;
-[match.out, h] = matcher(match.Tl);
+[match.out, h] = matcher(NPN.S22');
 printpdffig(h,[10 10],'verslag/fig/matchLoad.pdf');
 texportMatch(match);
 
