@@ -164,11 +164,16 @@
   
 
 \section{Matchingnetwerken}
-  De matching gebeurt zowel voor ingang als uitgang gelijkaardig, vandaar ook
-  dat er gekozen is om dit via MATLAB te implementeren in de functie \texttt{matcher}.
 
+  \subsection{Bepalen van de te matchen reflectiefactoren}
+    \tbd{Uitleg en formules bijsmijten}
+  \subsection{De eigenlijke matching}
   Zoals opgelegd in \cite{lesWendy} wordt gebruikgemaakt van een variatie op de
   single stub matching zoals weergegeven in figuur \ref{fig:schakelingMatch}.
+  De aangeduide impedantiepijlen dragen een nummer dat ook verder gebruikt zal
+  worden als index bij de matching voor zowel reflectiefactoren ($\Gamma$),
+  impedanties ($Z$), admittanties ($Y$), enz. Het is dus raadzaam deze schakeling bij de
+  hand te houden. 
 
   \begin{figure}[!hb]
     \centering
@@ -177,11 +182,52 @@
     \label{fig:schakelingMatch}
   \end{figure}
 
-  \tbd{Procedure invoegen}
+  De matching gebeurt zowel voor ingang als uitgang gelijkaardig, vandaar ook
+  dat er gekozen is om dit via MATLAB te implementeren in de functie \texttt{matcher}.
 
   Voor de ingang en uitgang kunnen de bijhorende smith charts op respectievelijk
-  figuur \ref{fig:matchIn} en figuur \ref{fig:matchOut} gevolgd worden. Deze zijn
-  tevens in de bijlagen aanwezig voor de duidelijkheid.
+  figuur \ref{fig:matchIn} en figuur \ref{fig:matchOut} gevolgd worden, dit
+  zijn admittantie-smith charts genormaliseerd op $50 \Omega$. Deze zijn
+  tevens in de bijlagen aanwezig voor de duidelijkheid. Verder in de tekst
+  zal voor de beknoptheid gesproken worden over genormaliseerde conductanties
+  en admittanties zonder dit expliciet te vermelden (bij niet-genormaliseerde
+  grootheden worden echter steeds eenheden vermeld).
+
+  Hier zal enkel algemeen de uitleg gegeven worden bij zowel de schakeling en de smith charts, zonder in
+  detail te gaan voor in- of uitgang. In tabel \ref{tbl:Matching} wordt eveneens
+  een korte legende voor de gebruikte Smith Charts weergegeven.
+
+  \begin{enumerate}
+   \item Men zet eerst de vereiste reflectiefactor $\Gamma_1$ uit op de Smith
+   Chart, deze werden op het einde van de vorige sectie bepaald.
+   \item Vervolgens kan men (als hulpmiddel) een cirkel met als middelpunt $\varrho = 0 + 0j$ door
+   het punt $\Gamma_1$ tekenen (in streep-punt-lijn), dit zijn alle realiseerbare
+   reflectie-factoren $\gamma_2$ voor het punt $2$ als de tussenliggende
+   transmissielijn verlies- en dispersieloos is.
+   \item Men bepaalt vervolgens de twee snijpunten tussen de cirkel $\gamma_2$
+   en de cirkel met conductantie $G = 1$. Voor allebei de snijpunten
+   bepaalt men de hoek (of lengte) waarover naar load gedraaid (tegenwijzerzin)
+   moet worden om vanuit $\Gamma_1$ in het snijpunt uit te komen.
+   \item Het snijpunt met de kortste lengte, noemen we $\Gamma_2$ en de bijhorende
+   lengte wordt aangeduidt met $L_1$ of in elektrische lengte $E_1$. Hiermee is
+   de lengte van de eerste transmissielijn bepaald.
+   \item Op het knooppunt $2$, kunnen we een verband tussen de admittanties opschrijven
+   en vereenvoudigen vermits $\Re{(Y_2)} = 1$ per constructie.
+   \[
+     Y_2 = Y_3 + Y_0 = Y_3 \Rightarrow Y_3 = Y_2 - 1 = Y_2
+   \]
+   \item \tbd{Controle: er klopt echt iets niet: waarom complex toegevoegde nemen?
+   en welke formules nodig om gamma naar Y om te zetten op deze chart?}
+   \item Hiermee hebben we $Y_3$ bepaald, en vermits $Y_3 = 2 \cdot Y_4$,
+   is daaruit $\Gamma_4 = \frac{1-Y_4}{1+Y_4}$ te bepalen en uit te zetten
+   op de smith chart.
+   \item Vanuit $\Gamma_4$ draait men weer naar load (over de transmissielijn)
+   tot men in de open of de short terechtgekomen is en leest men de lengte
+   $L_2$ (elektrische lengte $E_2$) van de stublijn af.   
+  \end{enumerate}
+
+
+  De numerieke resultaten van deze matchings wordt weergegeven in tabel \ref{tbl:Matching}.
 
   \begin{figure}
     \centering
@@ -197,7 +243,7 @@
     \label{fig:matchOut}
   \end{figure}
   
-  De numerieke resultaten van deze matching wordt weergegeven in tabel \ref{tbl:Matching}.
+
 
   \begin{table}[h!]
      \begin{center}
@@ -210,11 +256,10 @@
 
 \section{DC biasnetwerk}
   Om het DC Bias-netwerk te designen kunnen vele verschillende soorten
-  netwerken gebruikt worden. Hier werd de aanpak uit \cite{Gonzalez}
-  gebruikt. Volgens deze bron is dit netwerk (figuur \ref{fig:DCBias} goed geschikt door
-  \begin{itemize}
-   \item 
-  \end{itemize}
+  netwerken gebruikt worden. Hier werd de aanpak op pagina 275 uit \cite{Gonzalez}
+  gebruikt. Volgens deze bron is dit netwerk (figuur \ref{fig:DCBias} aangepast
+  bij het gebruik van (dunne en dikke) filmweerstanden, waarvan bij deze realisatie
+  gebruik zal gemaakt worden.
 
   \begin{figure}
     \centering
@@ -223,7 +268,30 @@
     \caption{Biasnetwerk}
   \end{figure}
 
+  Om de componentwaarden te bepalen, maken we gebruik van de vergelijkingen uit
+  \cite{Gonzalez}, die ook eenvoudig afgeleid zouden kunnen worden uit de
+  werkingsvergelijkingen van een bipolaire transistor en algemenere
+  netwerkvergelijkingen.
+    \[
+      I_B = \frac{I_C}{h_{FE}}
+    \]
+    \[
+      R_B = \frac{V_B - V_{BE}}{I_B}
+    \]
+    \[
+      R_{B2} = \frac{V_B}{I_{BB}}
+    \]
+    \[
+      R_{B1} = \frac{V_{CE} - V_B}{I_{BB} + I_B}
+    \]
+  Bijkomend wordt gesteld dat om een goede stabiliteit van het biasnetwerk te
+  bekomen, men erop moet letten dat $I_{BB} >> I_B$ en $V_{B} \approx 0.1 V_{CC}$.
+  Vermits het werkingspunt in \cite{lesWendy} werd opgegeven zoals te zien in
+  tabel \ref{tbl:OPSpec}. Uit \cite{BFR91A} kan de nominale waarde van de
+  versterkingsfactor $h_{FE} \approx 100$ gehaald worden en het voor een
+  siliciumtransistor is $V_{BE} \approx 0.7 \mbox{V}$.
 
+  
 
 \section{Simulaties}
   \subsection{Ideale transmissielijnen}
