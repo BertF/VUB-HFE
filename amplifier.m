@@ -64,7 +64,7 @@ figure;
 scDraw(0); hold on;
 color = 'rgbcmk'; 
 
-h = plot([0 C(end)],'--y','DisplayName','Drager');
+h = plot([0 C(end)],'-y','DisplayName','Drager');
 nolegend(h);
 
 for i = 1:numel(C)
