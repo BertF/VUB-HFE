@@ -1,10 +1,16 @@
 {
     decl winInstP, dsnPtr;
-    de_load_design ("Amplifier_Ideal", 0);
-    winInstP = de_create_window(SCHEMATIC_WINDOW, NULL, 30, 30, 846, 500);
-    dsnPtr = de_load_design("Amplifier_Ideal", 0);
+    de_load_design ("Amplifier_Strip", 0);
+    winInstP = de_create_window(SCHEMATIC_WINDOW, NULL, 80, 80, 846, 500);
+    dsnPtr = de_load_design("Amplifier_Strip", 0);
     if (dsnPtr != NULL && winInstP != NULL)
     {
-        deutil_file_open_update_window(winInstP, dsnPtr, "Amplifier_Ideal");
+        deutil_file_open_update_window(winInstP, dsnPtr, "Amplifier_Strip");
+    }
+    winInstP = de_create_window(LAYOUT_WINDOW, NULL, 30, 30, 1012, 500);
+    dsnPtr = de_load_design("Amplifier_Strip", 0);
+    if (dsnPtr != NULL && winInstP != NULL)
+    {
+        deutil_file_open_update_window(winInstP, dsnPtr, "Amplifier_Strip");
     }
 }

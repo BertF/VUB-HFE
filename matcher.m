@@ -3,7 +3,7 @@ function [ res, H ] = matcher(Tr)
 % Tr: required reflection factor
 % mode: matching mode (not used)
 % file: file name for tex output
-  H = scDraw(0); hold on;
+  scDraw(0); hold on;
   dir = -1; % towards load
   %% reflectiefactor uitzetten op SC
   Gamma1 = -Tr;
