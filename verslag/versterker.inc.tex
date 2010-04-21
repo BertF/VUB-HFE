@@ -197,6 +197,22 @@
   detail te gaan voor in- of uitgang. In tabel \ref{tbl:Matching} wordt eveneens
   een korte legende voor de gebruikte Smith Charts weergegeven.
 
+  \paragraph{N.B.} Vermits er enkel een impedantie smith chart beschikbaar is
+  en men bij een match met parallele stubs het handiger is om met admittanties
+  te werken, kunnen reflectiefactoren $\Gamma$ niet rechtstreeks uitgezet worden.
+  Door $-\Gamma$ op de chart te noteren, is in feite een puntspiegeling rond de
+  oorsprong gerealiseerd. Hierdoor zijn de isoweerstand- en isoreactantielijnen
+  van de (getekende) impedantie smith chart, samenvallend met de isoconductantie-
+  en isopermeantielijnen van de (denkbeeldige) admittantie smith chart.
+
+  Bij het aflezen van reflectiefactoren moet echter wel steeds opnieuw de
+  puntspiegeling uitgevoerd worden om de werkelijke reflectiefactoren te bekomen.
+  Hiermee werd in wat hierop volgt steeds rekening gehouden.
+
+  Dit houdt bv. ook in dat op de smith charts gebruikt voor de matchings, de
+  open ($Z = \infty$, $Y=0$, $\Gamma = 1$) helemaal links ligt en de short
+  ($Z = 0$, $Y = \infty$, $\Gamma = -1$) helemaal rechts.
+
   \begin{enumerate}
    \item Men zet eerst de vereiste reflectiefactor $\Gamma_1$ uit op de Smith
    Chart, deze werden op het einde van de vorige sectie bepaald.
@@ -216,8 +232,7 @@
    \[
      Y_2 = Y_3 + Y_0 = Y_3 \Rightarrow Y_3 = Y_2 - 1 = Y_2
    \]
-   \item \tbd{Controle: er klopt echt iets niet: waarom complex toegevoegde nemen?
-   en welke formules nodig om gamma naar Y om te zetten op deze chart?}
+   \item \tbd{Controle: er klopt echt iets niet: waarom complex toegevoegde nemen?}
    \item Hiermee hebben we $Y_3$ bepaald, en vermits $Y_3 = 2 \cdot Y_4$,
    is daaruit $\Gamma_4 = \frac{1-Y_4}{1+Y_4}$ te bepalen en uit te zetten
    op de smith chart.
