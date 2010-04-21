@@ -6,9 +6,11 @@
 
 %% set path for smith chart
 path(path,'smithchart');
+si = genSIprefix();
 
 %% general specs
-f0 = 1445e6;            %[Hz] working frequency
+f0 = 1445 * si.M;       %[Hz] working frequency
+c0 = 299792458;         %[m/s] speed of light in vacuum
 
 %% DC operation point amplifier
 OPSpec = struct('name','DC Operating Point Specifications');
@@ -38,6 +40,11 @@ PCBAmp = struct('name', 'PCB Material Amplifier');
 PCBAmp.type = 'FR4';
 PCBAmp.epsR = 4.25;     %[] relative dielectric constant
 PCBAmp.Z0   = 50;       %[Ohm] characteristic impedance
+PCBAmp.c = 2/3 * c0;    %[m/s] speed of light in PCB
+PCBAmp.f0 = f0;         
+PCBAmp.lambda = PCBAmp.c/PCBAmp.f0; %[m] wave length 
+PCBAmp.h = 1.6 * si.m;  %[m] height of PCB
+
 texportPCB(PCBAmp,'verslag/res/PCBAmp.inc.tex');
 
 %% PCB for antenna

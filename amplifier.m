@@ -91,22 +91,40 @@ texportMatch(match);
 
 %% manueel
 % input netwerk
-lengteverbindingin=0.4325-0.326; %verbinding bjt 
-imaginair_tecompin=1.4;
-halvetecompin=imaginair_tecompin/2;
-tweemaalin_lengte=0.096;
-Einstub = elecLength(tweemaalin_lengte); % elec. lengte in degree
-Einlijn = elecLength(lengteverbindingin); % elek. lengte in degree
-% output netwerk
-lengteverbindingout=0.1961-0.184; %verbinding bjt
-imaginair_tecompout=1.9;
-halvetecompout=imaginair_tecompout/2;
-tweemaalout_lengte=0.3849-0.25;
-Eoutstub = elecLength(tweemaalout_lengte); % elec. lengte in degree
-Eoutlijn = elecLength(lengteverbindingout); % elek. lengte in degree
-disp('Elektrische lengtes' );
-disp([Einstub Einlijn]);
-disp([Eoutstub Eoutlijn]);
+% lengteverbindingin=0.4325-0.326; %verbinding bjt 
+% imaginair_tecompin=1.4;
+% halvetecompin=imaginair_tecompin/2;
+% tweemaalin_lengte=0.096;
+% Einstub = elecLength(tweemaalin_lengte); % elec. lengte in degree
+% Einlijn = elecLength(lengteverbindingin); % elek. lengte in degree
+% % output netwerk
+% lengteverbindingout=0.1961-0.184; %verbinding bjt
+% imaginair_tecompout=1.9;
+% halvetecompout=imaginair_tecompout/2;
+% tweemaalout_lengte=0.3849-0.25;
+% Eoutstub = elecLength(tweemaalout_lengte); % elec. lengte in degree
+% Eoutlijn = elecLength(lengteverbindingout); % elek. lengte in degree
+% disp('Elektrische lengtes' );
+% disp([Einstub Einlijn]);
+% disp([Eoutstub Eoutlijn]);
+
+%% ADS matching
+match.in.ADS.E1 = 9.141;
+match.in.ADS.E2 = 28.89;
+match.in.ADS.term = 'open' ;
+match.out.ADS.E1 = 45.36;
+match.out.ADS.E2 = 50.18;
+match.out.ADS.term = 'short' ;
+
+match.in.ADS.L1 = match.in.ADS.E1 / 360 * PCBAmp.lambda;
+match.in.ADS.L2 = match.in.ADS.E2 / 360 * PCBAmp.lambda;
+match.out.ADS.L1 = match.out.ADS.E1 / 360 * PCBAmp.lambda;
+match.out.ADS.L2 = match.out.ADS.E2 / 360 * PCBAmp.lambda;
+disp(['in L1 = ' eng(match.in.ADS.L1)]);
+disp(['in L2 = ' eng(match.in.ADS.L2)]);
+disp(['out L1 = ' eng(match.out.ADS.L1)]);
+disp(['out L2 = ' eng(match.out.ADS.L2)]);
+
 
 %% DC bias netwerk
 % architectuur zoals in Gonzalez fig. 3.9.2b (p. 287 PDF)
