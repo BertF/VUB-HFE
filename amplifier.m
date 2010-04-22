@@ -68,7 +68,7 @@ h = plot([0 C(end)],'-y','DisplayName','Drager');
 nolegend(h);
 
 for i = 1:numel(C)
-    plot(circle(C(i),R(i),100),color(i),'LineWidth',2,'DisplayName',['Gaincirkel: ' num2str(db(Gp(i))) ' dB']);
+    plot(circle(C(i),R(i),100),color(i),'LineWidth',2,'DisplayName',['Gaincirkel: ' num2str(db(Gp(i),'power')) ' dB']);
 end;
 legend(gca,'show'); axis square; grid on;
 for i = 1:numel(C)
