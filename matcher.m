@@ -77,7 +77,7 @@ function [ res, H ] = matcher(Tr)
   
   %% export values
   res = struct('name','matching network');
-  res.Gamma1 = Gamma1;
+  res.Gamma1 = - Gamma1;
   res.Gamma2 = - Gamma2; % mintekens: van getekende ZSC naar YSC transformeren
   res.Gamma3 = - Gamma3;
   res.Gamma4 = - Gamma4;

@@ -108,6 +108,12 @@ texportMatch(match);
 % disp([Einstub Einlijn]);
 % disp([Eoutstub Eoutlijn]);
 
+%% man matching (in lambda)
+match.in.man.L1 = 0.072;
+match.in.man.L2 = 0.25-0.176;
+match.out.man.L1 = 0.028;
+match.out.man.L2 = 0.25-0.126;
+
 %% ADS matching
 match.in.ADS.E1 = 9.141;
 match.in.ADS.E2 = 28.89;
