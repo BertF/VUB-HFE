@@ -1,6 +1,6 @@
 #
 # File:      Z:\Git\HFE\balun.wc
-# Modified:  Mon Apr 26 11:49:13 2010
+# Modified:  Mon Apr 26 16:32:26 2010
 # Wcalc Version 1.0
 
 [wcalc]
@@ -14,31 +14,31 @@ model_name = coupled_microstrip
 file_version = 0.1
 
 # Length (meters)
-L = 0,1
+L = 0,03288
 
 # Width (meters)
 W = 0,006
 
 # Spacing (meters)
-S = 0,005
+S = 0,002388
 
 # Characteristic Impedance (ohms)
-Z0 = 39,7497447541544
+Z0 = 39,4927944992479
 
 # Coupling coefficient
-k = 0,0348755573157226
+k = 0,0786332025192765
 
 # Even Mode Characteristic Impedance (ohms)
-Z0e = 41,1610790747533
+Z0e = 42,7305496000881
 
 # Odd Mode Characteristic Impedance (ohms)
-Z0o = 38,3868023758775
+Z0o = 36,5003687515551
 
 # Flag to use z0/k vs z0e/z0o for synthesis
 use_z0k = 0
 
 # Electrical Length (degrees)
-Elen = 274,346111724921
+Elen = 89,9894195240417
 
 # Frequency of operation
 freq = 1445000000
