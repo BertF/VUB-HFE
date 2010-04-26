@@ -1,4 +1,4 @@
-<ADSProject Revision="3" Version="100">
+<ADSProject Revision="4" Version="100">
     <Project Name="">
         <Preferences Name="layout.prf" />
         <Preferences Name="mil_layout.prf" />
@@ -11,15 +11,11 @@
         <Data_Display Name="SPARTRANSISTOR.dds" />
         <Data_Display Name="DC_ANALYSIS.dds" />
         <Dataset Name="SPARTRANSISTOR.ds" />
-        <Design Name="Ideal_Amplifier.dsn" />
         <Dataset Name="Ideal_Amplifier.ds" />
         <Preferences Name="mm_layout.prf" />
         <Preferences Name="mm_schematic.prf" />
         <Dataset Name="Amplifier_Unilateral.ds" />
         <Design Name="Amplifier_ReadSPar.dsn" />
-        <Design Name="Amplifier_Ideal_Bilateral.dsn" />
-        <Design Name="Amplifier_Ideal_Unilateral.dsn" />
-        <Design Name="Amplifier_Strip_Bilateral.dsn" />
         <Ael Name="save_project_state.ael" />
         <Data_Display Name="Amplifier_Ideal_Bilateral.dds" />
         <Data_Display Name="Amplifier_Ideal_Unilateral.dds" />
@@ -29,5 +25,18 @@
         <Dataset Name="Amplifier_Ideal_Unilateral.ds" />
         <Dataset Name="Amplifier_ReadSPar.ds" />
         <Dataset Name="Amplifier_Strip_Bilateral.ds" />
+        <Design Name="Amplifier_Ideal.dsn" />
+        <Design Name="Amplifier_Strip.dsn" />
+        <Design Name="Amplifier_Strip_corrected.dsn" />
+        <Design Name="Amplifier_Strip_MetDC.dsn" />
+        <Design Name="DA_SmithChartMatch_Amplifier_Ideal.dsn" />
+        <Data_Display Name="Amplifier_Ideal.dds" />
+        <Data_Display Name="Amplifier_Strip.dds" />
+        <Data_Display Name="Amplifier_Strip_MetDC.dds" />
+        <Dataset Name="Amplifier_Ideal.ds" />
+        <Dataset Name="Amplifier_Strip.ds" />
+        <Dataset Name="Amplifier_Strip_Bilateral_capacitors.ds" />
+        <Dataset Name="Amplifier_Strip_Bilateral_NoOptimization.ds" />
+        <Dataset Name="Amplifier_Strip_MetDC.ds" />
     </Project>
 </ADSProject>

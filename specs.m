@@ -53,6 +53,7 @@ PCBAE.type  = 'RO3003';
 PCBAE.epsR  = 3;        %[] relative dielectric constant
 PCBAE.Z0    = 50;       %[Ohm] characteristic impedance of microstrip
 PCBAE.ZAE   = 73;       %[Ohm] characteristic impedance of antenna
+PCBAE.h     = 1.7e-3;   %[m] thickness
 texportPCB(PCBAE,'verslag/res/PCBAE.inc.tex');
 
 %% Matching networks
