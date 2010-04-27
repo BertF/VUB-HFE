@@ -13,7 +13,7 @@
         <ZeroSuppression>Leading</ZeroSuppression>
         <CoordMode>AbsoluteCMode</CoordMode>
         <NumIntegerDigits>2</NumIntegerDigits>
-        <NumFractionalDigits>4</NumFractionalDigits>
+        <NumFractionalDigits>5</NumFractionalDigits>
         <XOffset>0</XOffset>
         <YOffset>0</YOffset>
         <XScale>1</XScale>
@@ -26,7 +26,6 @@
         <HoleFormat>Holes As Cutlines</HoleFormat>
         <Layers>
             <Layer AdsLayer="bond" Transfer="1" />
-            <Layer AdsLayer="bound" Transfer="1" />
             <Layer AdsLayer="cond" Transfer="1" />
             <Layer AdsLayer="hole" Transfer="1" />
             <Layer AdsLayer="leads" Transfer="1" />
@@ -34,7 +33,6 @@
             <Layer AdsLayer="ports" Transfer="1" />
             <Layer AdsLayer="text" Transfer="1" />
             <Layer AdsLayer="bond" Polarity="Positive" />
-            <Layer AdsLayer="bound" Polarity="Positive" />
             <Layer AdsLayer="cond" Polarity="Positive" />
             <Layer AdsLayer="hole" Polarity="Positive" />
             <Layer AdsLayer="leads" Polarity="Positive" />
