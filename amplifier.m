@@ -58,11 +58,11 @@ Gtmax = maxGain2(NPN.S,K); % eenvoudigere formule
 [CS, RS] = gainCircle(NPN.S,gs,'in');
 [CL, RL] = gainCircle(NPN.S,gl,'out');
 
-Gp= [10.^([3 2 1]/20) 0.5*Gtmax 0.99*Gtmax Gtmax];
+Gp= [10.^([0 1 2 3]/10) 0.5*Gtmax 0.99*Gtmax Gtmax];
 [C, R] = gainCircle(NPN.S,Gp,'in',K);
 figure;
 scDraw(0); hold on;
-color = 'rgbcmk'; 
+color = 'rgbcmyk'; 
 
 h = plot([0 C(end)],'-y','DisplayName','Drager');
 nolegend(h);
@@ -80,7 +80,6 @@ printpdffig(gcf, [10,10], 'verslag/fig/gaincirkels.pdf');
 texportCRs(Gp,C,R,'verslag/res/gaincirkeltbl.inc.tex');
 
 %% Matching input and output
-close all;
 figure;
 [match.in, h] = matcher(NPN.S11');
 printpdffig(h,[10 10],'verslag/fig/matchSource.pdf');

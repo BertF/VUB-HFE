@@ -21,11 +21,11 @@ if nargin<4
         return
     end;
 
-    C = g*S11'/(1-(1*g)*norm(S11)^2);
-    R = sqrt(1-g) * ( 1 - norm(Sp)^ 2) / ( 1 - (1-g) * norm(S22)^2);
+    C = g*S11'./(1-(1*g)*norm(S11)^2);
+    R = sqrt(1-g) .* ( 1 - norm(Sp)^ 2) ./ ( 1 - (1-g) .* norm(S22)^2);
 else
     Gp = g;
     Delta = det(S);
-    R= sqrt(norm(S12*S21)^2-2*K*norm(S12*S21).*(norm(S21)^2./Gp)+(norm(S21)^2./Gp).^2)./(norm(S22)^2-norm(Delta)^2+norm(S21)^2./Gp)
-    C=(S22.'-S11.*Delta.')./(norm(S22)^2-norm(Delta)^2+norm(S21)^2./Gp)
+    R= sqrt(norm(S12*S21)^2-2*K*norm(S12*S21).*(norm(S21)^2./Gp)+(norm(S21)^2./Gp).^2)./(norm(S22)^2-norm(Delta)^2+norm(S21)^2./Gp);
+    C=(S22.'-S11.*Delta.')./(norm(S22)^2-norm(Delta)^2+norm(S21)^2./Gp);
 end;
