@@ -25,29 +25,16 @@
         <PathsAsPolygons>1</PathsAsPolygons>
         <HoleFormat>Holes As Cutlines</HoleFormat>
         <Layers>
-            <Layer AdsLayer="bond" Transfer="1" />
+            <Layer AdsLayer="bound" Transfer="1" />
             <Layer AdsLayer="cond" Transfer="1" />
             <Layer AdsLayer="hole" Transfer="1" />
-            <Layer AdsLayer="leads" Transfer="1" />
-            <Layer AdsLayer="packages" Transfer="1" />
             <Layer AdsLayer="ports" Transfer="1" />
-            <Layer AdsLayer="text" Transfer="1" />
-            <Layer AdsLayer="bond" Polarity="Positive" />
+            <Layer AdsLayer="bound" Polarity="Positive" />
             <Layer AdsLayer="cond" Polarity="Positive" />
             <Layer AdsLayer="hole" Polarity="Positive" />
-            <Layer AdsLayer="leads" Polarity="Positive" />
-            <Layer AdsLayer="packages" Polarity="Positive" />
             <Layer AdsLayer="ports" Polarity="Positive" />
-            <Layer AdsLayer="text" Polarity="Positive" />
         </Layers>
         <SingleFileFilename></SingleFileFilename>
-        <DrillLayers>
-            <Layer LayerNumber="5" DrillExport="0">
-                <DrillDiameterMap DrawDiameter="48260" ToolDiameter="48260" />
-            </Layer>
-            <Layer LayerNumber="10" DrillExport="0">
-                <DrillDiameterMap DrawDiameter="48260" ToolDiameter="48260" />
-            </Layer>
-        </DrillLayers>
+        <DrillLayers />
     </Export>
 </AdsTranslatorSetupFile>
