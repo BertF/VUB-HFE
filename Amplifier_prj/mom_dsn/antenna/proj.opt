@@ -13,6 +13,3 @@ Z0_MATRIX OFF;
 DS_DIR "Z:\Git\HFE\Amplifier_prj\data";
 DS_NAME "antenna_mom";
 matrixSolver 0;
-
-resolution_enhancement 0.1;
-resolution_enhancement 0.01;

@@ -2,8 +2,8 @@
 
                   ------ MOMENTUM STATISTICS (MW mode) ------
 
-              Momentum MomEngine 8.0.182 (*) 331.200 May  5 2008
-                           Wed Apr 28 11:00:04 2010
+              Momentum MomEngine_64 8.0.182 (*) 331.200 May  5 2008
+                           Wed Apr 28 14:11:33 2010
 
 ==============================================================================
 
@@ -14,14 +14,14 @@ MESH
 
 STATISTICS
 ----------
- Rectangular cells :    569
- Triangular cells  :     92
+ Rectangular cells :    909
+ Triangular cells  :     17
  Via cells         :      0
- Edge currents     :   1200
+ Edge currents     :   1747
 
 RESOURCES
 ---------
- Process size :     2.00 MB
+ Process size :     1.50 MB
  User Time    :    0h 0m 0s
  Elapsed Time :    0h 0m 0s
 

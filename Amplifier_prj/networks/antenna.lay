@@ -14,7 +14,7 @@ packages	number = 10 stream = 11 iges = 11 color = 84 fill = 9 line = 0, 1 0 1, 
 ports	number = 11 stream = 12 iges = 12 color = 69 fill = 0 line = 0, 0 0 1, "*", type = 1, dxf = "ports" trans = 0
 bound	number = 13 stream = 14 iges = 14 color = 100 fill = 13 line = 5, 0 0 1, "*", type = 1, dxf = "bound" trans = 0
 silk_screen	number = 14 stream = 15 iges = 15 color = 43 fill = 0 line = 0, 1 0 1, "*", type = 1, dxf = "silk_screen" trans = 0
-silk_screen2	number = 31 stream = 32 iges = 32 color = 43 fill = 0 line = 0, 1 0 1, "*", type = 1, dxf = "silk_screen2" trans = 0
+silk_screen2	number = 31 stream = 32 iges = 32 color = 43 fill = 0 line = 0, 1 1 0, "*", type = 1, dxf = "silk_screen2" trans = 0
 case_dimensions	number = 15 stream = 16 iges = 16 color = 46 fill = 0 line = 0, 1 0 1, "*", type = 1, dxf = "case_dimensions" trans = 0
 pc1	number = 16 stream = 17 iges = 17 color = 100 fill = 13 line = 5, 2 0 1, "pc1", type = 1, dxf = "pc1" trans = 0
 pc2	number = 17 stream = 18 iges = 18 color = 25 fill = 45 line = 5, 2 0 1, "pc2", type = 1, dxf = "pc2" trans = 0
