@@ -1,0 +1,18 @@
+Begin_Block Header
+
+  Mode ASCII
+  File_Name Z:\Git\HFE\Amplifier_prj\emds_dsn\antenna\3DEM\proj.lcm
+  Version 3.0
+
+End_Block Header
+
+Begin_Block Data
+
+Begin_Preferences
+Begin_Color_Block
+  Layer cond 0.933333 0.415686 0.313725 0
+  Layer cond2 1 1 0 0
+End_Color_Block
+End_Preferences
+
+End_Block Data

@@ -1,0 +1,17 @@
+Begin_Block  Header
+
+  Mode  ASCII
+  File_Name  Z:\Git\HFE\Amplifier_prj\emds_dsn\antenna2/geolinks/emds4ads/EMDS4ADS_preview/EMDS4ADS_preview.mtc
+  Version  1.00
+
+End_Block  Header
+
+Begin_Block Data
+COLOR_MAP 6
+  C 0 PORT_1 4
+  C 1 cond_poly_0 1
+  C 2 cond2_poly_1 2
+  C 3 FreeSpace_0_obj1 4
+  C 4 RO3003_obj2 4
+  C 5 FreeSpace_obj3 4
+End_Block Data

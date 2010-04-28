@@ -1,5 +1,5 @@
-pathWidth 0.625000
-pathBend 1
+pathWidth 4.200000
+pathBend 2
 pathEnd 1
 pathRadius 2.000000
 pathMiterPercent 30.000000
@@ -51,7 +51,7 @@ selectMode 1
 selectWinMode 1
 selectBoxSize 10.000000
 selectPointSize 8.000000
-entryMode 0
+entryMode 2
 rotationIncrement 90.000000
 gdsNumArcPoints 100
 gridSnapX 0.100000
@@ -65,7 +65,7 @@ majorGridDisplayY 5
 majorGridDisplayOn 1
 gridDisplayMode 0
 gridSnapOn 1
-gridSnapMode 3
+gridSnapMode 18
 gridColor 104
 windowLLX -5.000000
 windowLLY -5.000000
@@ -75,7 +75,7 @@ coordReadout 1
 schemPrec -3
 schemIncr 1
 schemUnits 2
-layoutPrec -4
+layoutPrec -1
 layoutIncr 1
 layoutUnits 4
 backupCount 20

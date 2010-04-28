@@ -1,0 +1,29 @@
+Begin_Block  Header
+
+  Mode  ASCII
+  File_Name  Z:\Git\HFE\Amplifier_prj\emds_dsn\antenna2/geolinks/emds4ads/EMDS4ADS_preview/EMDS4ADS_preview.mtd
+  Version  1.00
+
+End_Block  Header
+
+Begin_Block Data
+  MATERIAL 6
+  M 0 PORT_BOUNDARIES ISOTROPIC
+    FREQS 1
+    F 0 0.0  1 0  1 0
+  M 1 FreeSpace_0 ISOTROPIC
+    FREQS 1
+    F 0 0.0  1 0  1 0
+  M 2 RO3003 ISOTROPIC
+    FREQS 1
+    F 0 0.0  1 0  3 0
+  M 3 FreeSpace ISOTROPIC
+    FREQS 1
+    F 0 0.0  1 0  1 0
+  M 4 cond2 CONDUCTOR
+    FREQS 1
+    F 0 0.0 1  4.1e+07  0.0e+00
+  M 5 cond CONDUCTOR
+    FREQS 1
+    F 0 0.0 1  4.1e+07  0.0e+00
+End_Block Data

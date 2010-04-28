@@ -1,0 +1,33 @@
+Begin_Block  Header 
+  
+  Mode  ASCII 
+  File_Name  Z:\Git\HFE\Amplifier_prj\emds_dsn\antenna/EMDS4ADS.prf 
+  Version  3.00 
+  
+End_Block  Header 
+
+Begin_Block  Data 
+  
+  Begin_Preferences 
+  
+  Begin_Material_Block 
+  Material FreeSpace    0.0000000000000000e+000     1.0000000000000000e+000     1.0000000000000000e+000  
+  Material cond    9.3333299999999997e-001     4.1568600000000000e-001     3.1372499999999998e-001  
+  Material RO3003    0.0000000000000000e+000     1.0000000000000000e+000     1.0000000000000000e+000  
+  Material cond2    1.0000000000000000e+000     1.0000000000000000e+000     0.0000000000000000e+000  
+  Material FreeSpace_0    0.0000000000000000e+000     1.0000000000000000e+000     1.0000000000000000e+000  
+  End_Material_Block 
+  
+  Begin_Color_Block 
+  Object _OUTER_    1.0000000000000000e+000     1.0000000000000000e+000     1.0000000000000000e+000  
+  Object FreeSpace_0_obj1    0.0000000000000000e+000     1.0000000000000000e+000     1.0000000000000000e+000  
+  Object RO3003_obj2    0.0000000000000000e+000     1.0000000000000000e+000     1.0000000000000000e+000  
+  Object FreeSpace_obj3    0.0000000000000000e+000     1.0000000000000000e+000     1.0000000000000000e+000  
+  Object cond_poly_0    9.3333299999999997e-001     4.1568600000000000e-001     3.1372499999999998e-001  
+  Object cond2_poly_1    1.0000000000000000e+000     1.0000000000000000e+000     0.0000000000000000e+000  
+  End_Color_Block 
+  
+  End_Preferences 
+  
+End_Block  Data 
+

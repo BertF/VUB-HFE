@@ -1,0 +1,19 @@
+#Momentum: B.08.00.182 (*) 331.200 May  5 2008 
+#Momentum Date and Time: Wed Apr 28 11:07:59 2010
+
+# Antenna Parameters name : C:\Users\APLPrj02\AppData\Local\Temp\13227660\proj.ant
+
+Excitation 1
+Frequency 1 GHz
+Maximum radiation intensity 0.000248147688
+Angle of U_max 105.5334335 258.75
+E_theta_max 0.02628688926 ; E_phi_max 0.4315999748
+E_theta_max -0.02421323181 0.01023327671
+E_phi_max -0.3368973159 -0.2697753451
+Ex_max -0.3316889563 -0.2640570468
+Ey_max 0.0593656814 0.05531837942
+Ez_max 0.02332882775 -0.009859499619
+Power radiated 1 0.00123875916
+Effective angle 4.992023784 steradians 78.14153789 degrees 
+Directivity 4.009332182 dB
+Gain 2.100940256 dB

@@ -1,0 +1,18 @@
+simulationMode 1;
+platform ADS;
+mesh_frequency 1.500000000000 GHz;
+mesh_reduction ON;
+no_cells_per_wavelength 50;
+edgemesh_borderwidth AUTO;
+refacet_arcs 45;
+overlapextraction ON;
+gppMinFeatureSize -0.5 METRE;
+mask 1 expandDir 0 modelType 0;
+mask 2 expandDir 0 modelType 0;
+Z0_MATRIX OFF;
+DS_DIR "Z:\Git\HFE\Amplifier_prj\data";
+DS_NAME "antenna_mom";
+matrixSolver 0;
+
+resolution_enhancement 0.1;
+resolution_enhancement 0.01;

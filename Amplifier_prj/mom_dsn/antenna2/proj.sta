@@ -1,0 +1,137 @@
+==============================================================================
+
+                  ------ MOMENTUM STATISTICS (MW mode) ------
+
+              Momentum MomEngine 8.0.182 (*) 331.200 May  5 2008
+                           Wed Apr 28 11:30:26 2010
+
+==============================================================================
+
+
+------------------------------------------------------------------------------
+SOLVER                        USER TIME      ELAPSED TIME      MEMORY         
+PROCESSES                      (h:m:s)          (h:m:s)         (MB)          
+------------------------------------------------------------------------------
+
+SIMULATION SET-UP
+-----------------
+ Initialization           |     0: 0: 0   |     0: 0: 0   |      0.00   
+ Ports analysis           |     0: 0: 3   |     0: 0: 3   |      0.68   
+ Mesh processing          |     0: 0: 0   |     0: 0: 0   |      4.02   
+
+ Matrix size : 1805
+ Reduced matrix size : 1754
+
+1. SIMULATION FREQUENCY = 1 GHz 
+-------------------------
+ Green functions          |     0: 0: 0   |     0: 0: 0   |      3.02   
+ Basis creation           |     0: 0: 0   |     0: 0: 0   |      4.57   
+ Matrix load              |     0: 0:14   |     0: 0: 6   |     65.64   
+ Matrix solve             |     0: 0: 2   |     0: 0: 1   |      0.00   
+ Port calibration         |     0: 0:10   |     0: 0: 2   |     13.22   
+ S parameters             |     0: 0: 0   |     0: 0: 0   |      0.00   
+
+2. SIMULATION FREQUENCY = 2 GHz 
+-------------------------
+ Green functions          |     0: 0: 1   |     0: 0: 1   |      0.00   
+ Matrix load              |     0: 0:11   |     0: 0: 4   |      0.48   
+ Matrix solve             |     0: 0: 3   |     0: 0: 1   |      0.00   
+ Port calibration         |     0: 0: 6   |     0: 0: 2   |      0.02   
+ S parameters             |     0: 0: 0   |     0: 0: 0   |      0.00   
+ Adaptive sampling        |     0: 0: 1   |     0: 0: 0   |      0.00   
+
+3. SIMULATION FREQUENCY = 1.66667 GHz 
+-------------------------
+ Green functions          |     0: 0: 0   |     0: 0: 0   |      0.00   
+ Matrix load              |     0: 0:11   |     0: 0: 5   |      0.14   
+ Matrix solve             |     0: 0: 3   |     0: 0: 1   |      0.00   
+ Port calibration         |     0: 0: 7   |     0: 0: 2   |      0.13   
+ S parameters             |     0: 0: 0   |     0: 0: 0   |      0.00   
+ Adaptive sampling        |     0: 0: 0   |     0: 0: 0   |      0.00   
+
+4. SIMULATION FREQUENCY = 1.33333 GHz 
+-------------------------
+ Green functions          |     0: 0: 1   |     0: 0: 0   |      0.00   
+ Matrix load              |     0: 0:12   |     0: 0: 5   |      0.07   
+ Matrix solve             |     0: 0: 3   |     0: 0: 1   |      0.00   
+ Port calibration         |     0: 0: 8   |     0: 0: 2   |      0.02   
+ S parameters             |     0: 0: 0   |     0: 0: 0   |      0.00   
+ Adaptive sampling        |     0: 0: 0   |     0: 0: 0   |      0.00   
+
+5. SIMULATION FREQUENCY = 1.5 GHz 
+-------------------------
+ Green functions          |     0: 0: 0   |     0: 0: 0   |      0.00   
+ Matrix load              |     0: 0:12   |     0: 0: 5   |      0.04   
+ Matrix solve             |     0: 0: 3   |     0: 0: 1   |      0.00   
+ Port calibration         |     0: 0: 7   |     0: 0: 2   |      0.09   
+ S parameters             |     0: 0: 0   |     0: 0: 0   |      0.00   
+ Adaptive sampling        |     0: 0: 0   |     0: 0: 0   |      0.00   
+
+6. SIMULATION FREQUENCY = 1.16667 GHz 
+-------------------------
+ Green functions          |     0: 0: 1   |     0: 0: 0   |      0.00   
+ Matrix load              |     0: 0:13   |     0: 0: 6   |      0.04   
+ Matrix solve             |     0: 0: 3   |     0: 0: 1   |      0.00   
+ Port calibration         |     0: 0: 9   |     0: 0: 2   |      0.00   
+ S parameters             |     0: 0: 0   |     0: 0: 0   |      0.00   
+ Adaptive sampling        |     0: 0: 0   |     0: 0: 0   |      0.00   
+
+7. SIMULATION FREQUENCY = 1.08333 GHz 
+-------------------------
+ Green functions          |     0: 0: 0   |     0: 0: 0   |      0.00   
+ Matrix load              |     0: 0:14   |     0: 0: 6   |      0.00   
+ Matrix solve             |     0: 0: 2   |     0: 0: 0   |      0.00   
+ Port calibration         |     0: 0:10   |     0: 0: 3   |      0.00   
+ S parameters             |     0: 0: 0   |     0: 0: 0   |      0.00   
+ Adaptive sampling        |     0: 0: 0   |     0: 0: 0   |      0.00   
+
+8. SIMULATION FREQUENCY = 1.83333 GHz 
+-------------------------
+ Green functions          |     0: 0: 0   |     0: 0: 0   |      0.00   
+ Matrix load              |     0: 0:12   |     0: 0: 5   |      0.00   
+ Matrix solve             |     0: 0: 3   |     0: 0: 1   |      0.00   
+ Port calibration         |     0: 0: 6   |     0: 0: 2   |      0.09   
+ S parameters             |     0: 0: 0   |     0: 0: 0   |      0.00   
+ Adaptive sampling        |     0: 0: 0   |     0: 0: 0   |      0.00   
+
+9. SIMULATION FREQUENCY = 1.27778 GHz 
+-------------------------
+ Green functions          |     0: 0: 0   |     0: 0: 0   |      0.00   
+ Matrix load              |     0: 0:14   |     0: 0: 5   |      0.00   
+ Matrix solve             |     0: 0: 3   |     0: 0: 1   |      0.00   
+ Port calibration         |     0: 0: 9   |     0: 0: 3   |      0.02   
+ S parameters             |     0: 0: 0   |     0: 0: 0   |      0.00   
+ Adaptive sampling        |     0: 0: 0   |     0: 0: 0   |      0.00   
+
+10. SIMULATION FREQUENCY = 1.15278 GHz 
+-------------------------
+ Green functions          |     0: 0: 1   |     0: 0: 0   |      0.00   
+ Matrix load              |     0: 0:13   |     0: 0: 6   |      0.00   
+ Matrix solve             |     0: 0: 4   |     0: 0: 1   |      0.00   
+ Port calibration         |     0: 0: 9   |     0: 0: 3   |      0.12   
+ S parameters             |     0: 0: 1   |     0: 0: 0   |      0.00   
+ Adaptive sampling        |     0: 0: 0   |     0: 0: 0   |      0.00   
+
+11. SIMULATION FREQUENCY = 1.01389 GHz 
+-------------------------
+ Green functions          |     0: 0: 0   |     0: 0: 0   |      0.00   
+ Matrix load              |     0: 0:14   |     0: 0: 6   |      0.00   
+ Matrix solve             |     0: 0: 3   |     0: 0: 1   |      0.00   
+ Port calibration         |     0: 0:10   |     0: 0: 2   |      0.00   
+ S parameters             |     0: 0: 0   |     0: 0: 0   |      0.00   
+ Adaptive sampling        |     0: 0: 0   |     0: 0: 1   |      0.00   
+
+------------------------------------------------------------------------------
+TOTALS
+------------------------------------------------------------------------------
+ Nr of Frequencies   : 11 
+
+ Process size :    92.41 MB
+ User Time    :    0h 4m32s
+ Elapsed Time :    0h 1m39s
+
+==============================================================================
+
+
+temporary work directory = C:\Users\APLPrj02\AppData\Local\Temp\15832052
+

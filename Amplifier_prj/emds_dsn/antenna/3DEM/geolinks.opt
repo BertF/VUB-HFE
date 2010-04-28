@@ -1,0 +1,6 @@
+-outline_annular 0.00304
+-substr_ext 0.00456
+-merge_layers TRUE
+-move_to_origin FALSE
+-ignore_ports FALSE
+-wall_boundary Radiation

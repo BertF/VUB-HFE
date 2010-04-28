@@ -1,0 +1,16 @@
+#Momentum: B.08.00.182 (*) 331.200 May  5 2008 
+#Momentum Date and Time: Wed Apr 28 11:00:04 2010
+
+Overall database status : 1 (file present and valid)
+
+Frequency range : from 1 GHz to 2 GHz.
+
+Requested frequency range : from 1 GHz to 2 GHz.
+
+Individual status fields : (0 = FALSE, 1 = TRUE)
+ File exists             : 1
+ Substrates match        : 1
+ Frequency-range matches : 1
+
+Corresponding potentialpath : .\
+Corresponding potentialname : .\\substrates\0000.sdb
