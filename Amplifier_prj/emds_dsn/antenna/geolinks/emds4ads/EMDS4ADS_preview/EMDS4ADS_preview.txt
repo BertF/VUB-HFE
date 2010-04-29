@@ -5,7 +5,7 @@
 -----------------------------------------------------------------------
 
    Application:          Agilent EMDS
-   Project Generated on: Wed Apr 28 14:03:08 2010
+   Project Generated on: Thu Apr 29 10:16:30 2010
    Source:               ADS Layout
    Translator:           EMDS for ADS Translator
    Translator Version:   1.0
@@ -13,6 +13,12 @@
 -----------------------------------------------------------------------
 
 Reading Geometry Information ...
+POLYGON contains less than 3 points so it was omitted - line 3
+POLYGON/RECTANGLE did not translate (possibly too small) - line 3
+POLYGON contains less than 3 points so it was omitted - line 4
+POLYGON/RECTANGLE did not translate (possibly too small) - line 4
+POLYGON contains less than 3 points so it was omitted - line 5
+POLYGON/RECTANGLE did not translate (possibly too small) - line 5
   Geometry does not contain 3D structures...
 Generating layout outline based on geometry ...
 Performing initial geometry healing ... OK
@@ -23,6 +29,5 @@ Building Agilent EMDS Solid Model ...
   Building solid Vias ...
   Building substrate ...
 Reading Momentum Solution Stimulus file ... 
-  Adaptive Fast Sweep is defined.
 Checking for modal ports that overlap ...
   PORT_-1 has been merged into PORT_1

@@ -1,4 +1,4 @@
-CurrentLayer number = 2
+CurrentLayer number = 1
 default	number = 0 stream = 1 iges = 1 color = 59 fill = 0 line = 0, 0 0 1, "*", type = 1, dxf = "default" trans = 0
 cond	number = 1 stream = 2 iges = 2 color = 89 fill = 1 line = 0, 1 0 1, "cond", type = 1, dxf = "cond" trans = 0
 cond2	number = 2 stream = 3 iges = 3 color = 2 fill = 2 line = 0, 1 0 1, "cond2", type = 1, dxf = "cond2" trans = 0

@@ -10,11 +10,11 @@ ddoId = get_new(ddsId, "Object");
 // DataDisplay Object:
 	set(ddoId, "Path", dds_get_exec_path(what_file(0)));
 	set(ddoId, "Name", dds_get_exec_file(what_file(0)));
-	set(ddoId, "FileModifiedDateAndTime", "2010-04-28T12:02:23Z");
-	set(ddoId, "FileCreatedDateAndTime", "2010-04-28T12:02:23Z");
+	set(ddoId, "FileModifiedDateAndTime", "2010-04-29T08:04:47Z");
+	set(ddoId, "FileCreatedDateAndTime", "2010-04-29T08:04:46Z");
 	dssId = get(ddoId, "DatasetServer");
 // Default Dataset
-	set(ddoId, "DefaultDataset", "antenna_mom_a");
+	set(ddoId, "DefaultDataset", "antenna_mom");
 set(ddoId, "EnableExpressionUpdates", FALSE);
 pageId = get(ddoId, "CurrentPage");
 if (pageId == NULL) pageId = get_first(ddoId, "Page");
@@ -22,11 +22,11 @@ if (pageId == NULL) pageId = get_new(ddoId, "Page");
 goId0 = get_new(pageId, "Plot");
 // Base Class Object:
  set(goId0, "Name", "");
-       set(goId0, "Uid", 588);
+       set(goId0, "Uid", 1800);
  // Graphical Object:
- set(goId0, "Right", 3904);
- set(goId0, "Bottom", 3532);
- set(goId0, "Left", 172);
+ set(goId0, "Right", 3900);
+ set(goId0, "Bottom", 4101);
+ set(goId0, "Left", -328);
   set(goId0, "Top", 958);
  set(goId0, "Zrot", 0.000000);
  set(goId0, "Yrot", 0.000000);
@@ -41,10 +41,10 @@ goId0 = get_new(pageId, "Plot");
 	set(goId0, "FillColor", 0);
 // Plot base...
 	set(goId0, "LegendOnOff", TRUE);
-	set(goId0, "LeftMargin", 628);
-	set(goId0, "RightMargin", 104);
+	set(goId0, "LeftMargin", 1128);
+	set(goId0, "RightMargin", 100);
 	set(goId0, "TopMargin", 292);
-	set(goId0, "BottomMargin", 532);
+	set(goId0, "BottomMargin", 1101);
 // Plot Title...
 	set(goId0, "Title", "S11");
 	set(goId0, "TitleFont", "Arial For CAE");
@@ -53,7 +53,7 @@ goId0 = get_new(pageId, "Plot");
 axisID = get_new(goId0, "Axis", ddsXaxis, "xAxis");
 // Axis...
 	if (axisID != NULL) {
-		 set(axisID, "Uid", 608);
+		 set(axisID, "Uid", 1820);
 		 set(axisID, "Color", 104);
 		 set(axisID, "UserLabel", "Frequency");
 		 set(axisID, "LabelColor", 0);
@@ -65,9 +65,9 @@ axisID = get_new(goId0, "Axis", ddsXaxis, "xAxis");
 		 set(axisID, "LineType", 0);
 		 set(axisID, "TickFontSize", 140);
 		 set(axisID, "AutoscaleOnOff", TRUE);
-		 set(axisID, "MinValue", 1000000000);
-		 set(axisID, "MaxValue", 2000000000);
-		 set(axisID, "StepSize", 200000000);
+		 set(axisID, "MinValue", 1499999999.99999);
+		 set(axisID, "MaxValue", 1500000000.00002);
+		 set(axisID, "StepSize", 5.00679016113281e-006);
 		 set(axisID, "Logarithmic", FALSE);
 		 set(axisID, "Font", "Arial For CAE");
 		 set(axisID, "Format", ddsFormatAutomatic);
@@ -76,7 +76,7 @@ axisID = get_new(goId0, "Axis", ddsXaxis, "xAxis");
 axisID = get_new(goId0, "Axis", ddsYaxis, "yAxis");
 // Axis...
 	if (axisID != NULL) {
-		 set(axisID, "Uid", 609);
+		 set(axisID, "Uid", 1821);
 		 set(axisID, "Color", 104);
 		 set(axisID, "UserLabel", "Mag. [dB]");
 		 set(axisID, "LabelColor", 0);
@@ -88,9 +88,9 @@ axisID = get_new(goId0, "Axis", ddsYaxis, "yAxis");
 		 set(axisID, "LineType", 0);
 		 set(axisID, "TickFontSize", 140);
 		 set(axisID, "AutoscaleOnOff", TRUE);
-		 set(axisID, "MinValue", -3);
-		 set(axisID, "MaxValue", 0);
-		 set(axisID, "StepSize", 0.5);
+		 set(axisID, "MinValue", -0.668288152838766);
+		 set(axisID, "MaxValue", -0.668288152838753);
+		 set(axisID, "StepSize", 3.33066907387547e-015);
 		 set(axisID, "Logarithmic", FALSE);
 		 set(axisID, "Font", "Arial For CAE");
 		 set(axisID, "Format", ddsFormatAutomatic);
@@ -99,47 +99,9 @@ axisID = get_new(goId0, "Axis", ddsYaxis, "yAxis");
 traceID = get_new(goId0, "Trace", "dB(antenna_mom..S(1,1))", "xAxis", "yAxis");
 // Trace:
 	if (traceID != NULL) {
-		set(traceID, "TraceType", ddsScatterTraceType);
-		set(traceID, "Color", 18);
-		set(traceID, "Uid", 610);
-		set(traceID, "UIIndex", 0);
-		set(traceID, "Status", 43008);
-	}
-// Rect trace:
-	if (traceID != NULL) {
-		set(traceID, "LineThick", 20);
-		set(traceID, "LineType", ddsSolidLineType);
-		set(traceID, "FillPattern", 0);
-		set(traceID, "SymbolType", ddsTriangleSymbol);
-		set(traceID, "SymbolsOnOff", TRUE);
-		set(traceID, "SymbolsSpacing", 15);
-		set(traceID, "AlwaysDisplayTransitions", FALSE);
-		set(traceID, "SpectralArrowheadsOnOff", TRUE);
-		set(traceID, "LabelSubtracesOnOff", TRUE);
-		set(traceID, "FillHistogramsOnOff", FALSE);
-		set(traceID, "Format", ddsFormatAutomatic);
-		set(traceID, "NumDigits", 3);
-		set(traceID, "Font", "Arial For CAE");
-		set(traceID, "FontSize", 112);
-		set(traceID, "LineColorAutoSequence", FALSE);
-		set(traceID, "LineTypeAutoSequence", FALSE);
-		set(traceID, "SymbolTypeAutoSequence", FALSE);
-		set(traceID, "LineColorAutoSequenceOrder", 3);
-		set(traceID, "LineTypeAutoSequenceOrder", 1);
-		set(traceID, "SymbolTypeAutoSequenceOrder", 2);
-		if (DDSnumTraceTypes > 8) {
-			set(traceID, "NumberOfDensityColors", 16);
-			set(traceID, "DensityColorOffset", 0);
-			set(traceID, "DensityStartColor", 20);
-			set(traceID, "DensitySymbolType", ddsStarSymbol);
-		}
-	}
-traceID = get_new(goId0, "Trace", "dB(antenna_mom_a..S(1,1))", "xAxis", "yAxis");
-// Trace:
-	if (traceID != NULL) {
 		set(traceID, "TraceType", ddsLinearTraceType);
 		set(traceID, "Color", 18);
-		set(traceID, "Uid", 611);
+		set(traceID, "Uid", 1822);
 		set(traceID, "UIIndex", 0);
 		set(traceID, "Status", 43008);
 	}
@@ -149,7 +111,7 @@ traceID = get_new(goId0, "Trace", "dB(antenna_mom_a..S(1,1))", "xAxis", "yAxis")
 		set(traceID, "LineType", ddsSolidLineType);
 		set(traceID, "FillPattern", 0);
 		set(traceID, "SymbolType", ddsTriangleSymbol);
-		set(traceID, "SymbolsOnOff", FALSE);
+		set(traceID, "SymbolsOnOff", TRUE);
 		set(traceID, "SymbolsSpacing", 15);
 		set(traceID, "AlwaysDisplayTransitions", FALSE);
 		set(traceID, "SpectralArrowheadsOnOff", TRUE);
@@ -177,11 +139,11 @@ set(goId0, "InitPlot", 0);
 goId0 = get_new(pageId, "Plot");
 // Base Class Object:
  set(goId0, "Name", "");
-       set(goId0, "Uid", 589);
+       set(goId0, "Uid", 1801);
  // Graphical Object:
- set(goId0, "Right", 8404);
- set(goId0, "Bottom", 3532);
- set(goId0, "Left", 4630);
+ set(goId0, "Right", 8400);
+ set(goId0, "Bottom", 4101);
+ set(goId0, "Left", 4005);
   set(goId0, "Top", 958);
  set(goId0, "Zrot", 0.000000);
  set(goId0, "Yrot", 0.000000);
@@ -196,10 +158,10 @@ goId0 = get_new(pageId, "Plot");
 	set(goId0, "FillColor", 0);
 // Plot base...
 	set(goId0, "LegendOnOff", TRUE);
-	set(goId0, "LeftMargin", 670);
-	set(goId0, "RightMargin", 104);
+	set(goId0, "LeftMargin", 1295);
+	set(goId0, "RightMargin", 100);
 	set(goId0, "TopMargin", 292);
-	set(goId0, "BottomMargin", 532);
+	set(goId0, "BottomMargin", 1101);
 // Plot Title...
 	set(goId0, "Title", "S11");
 	set(goId0, "TitleFont", "Arial For CAE");
@@ -208,7 +170,7 @@ goId0 = get_new(pageId, "Plot");
 axisID = get_new(goId0, "Axis", ddsXaxis, "xAxis");
 // Axis...
 	if (axisID != NULL) {
-		 set(axisID, "Uid", 608);
+		 set(axisID, "Uid", 1820);
 		 set(axisID, "Color", 104);
 		 set(axisID, "UserLabel", "Frequency");
 		 set(axisID, "LabelColor", 0);
@@ -220,9 +182,9 @@ axisID = get_new(goId0, "Axis", ddsXaxis, "xAxis");
 		 set(axisID, "LineType", 0);
 		 set(axisID, "TickFontSize", 140);
 		 set(axisID, "AutoscaleOnOff", TRUE);
-		 set(axisID, "MinValue", 1000000000);
-		 set(axisID, "MaxValue", 2000000000);
-		 set(axisID, "StepSize", 200000000);
+		 set(axisID, "MinValue", 1499999999.99999);
+		 set(axisID, "MaxValue", 1500000000.00002);
+		 set(axisID, "StepSize", 5.00679016113281e-006);
 		 set(axisID, "Logarithmic", FALSE);
 		 set(axisID, "Font", "Arial For CAE");
 		 set(axisID, "Format", ddsFormatAutomatic);
@@ -231,7 +193,7 @@ axisID = get_new(goId0, "Axis", ddsXaxis, "xAxis");
 axisID = get_new(goId0, "Axis", ddsYaxis, "yAxis");
 // Axis...
 	if (axisID != NULL) {
-		 set(axisID, "Uid", 609);
+		 set(axisID, "Uid", 1821);
 		 set(axisID, "Color", 104);
 		 set(axisID, "UserLabel", "Phase [deg]");
 		 set(axisID, "LabelColor", 0);
@@ -243,9 +205,9 @@ axisID = get_new(goId0, "Axis", ddsYaxis, "yAxis");
 		 set(axisID, "LineType", 0);
 		 set(axisID, "TickFontSize", 140);
 		 set(axisID, "AutoscaleOnOff", TRUE);
-		 set(axisID, "MinValue", -200);
-		 set(axisID, "MaxValue", 200);
-		 set(axisID, "StepSize", 100);
+		 set(axisID, "MinValue", -153.108743745553);
+		 set(axisID, "MaxValue", -153.10874374555);
+		 set(axisID, "StepSize", 7.67386154620908e-013);
 		 set(axisID, "Logarithmic", FALSE);
 		 set(axisID, "Font", "Arial For CAE");
 		 set(axisID, "Format", ddsFormatAutomatic);
@@ -254,47 +216,9 @@ axisID = get_new(goId0, "Axis", ddsYaxis, "yAxis");
 traceID = get_new(goId0, "Trace", "phase(antenna_mom..S(1,1))", "xAxis", "yAxis");
 // Trace:
 	if (traceID != NULL) {
-		set(traceID, "TraceType", ddsScatterTraceType);
-		set(traceID, "Color", 18);
-		set(traceID, "Uid", 610);
-		set(traceID, "UIIndex", 0);
-		set(traceID, "Status", 43008);
-	}
-// Rect trace:
-	if (traceID != NULL) {
-		set(traceID, "LineThick", 20);
-		set(traceID, "LineType", ddsSolidLineType);
-		set(traceID, "FillPattern", 0);
-		set(traceID, "SymbolType", ddsTriangleSymbol);
-		set(traceID, "SymbolsOnOff", TRUE);
-		set(traceID, "SymbolsSpacing", 15);
-		set(traceID, "AlwaysDisplayTransitions", FALSE);
-		set(traceID, "SpectralArrowheadsOnOff", TRUE);
-		set(traceID, "LabelSubtracesOnOff", TRUE);
-		set(traceID, "FillHistogramsOnOff", FALSE);
-		set(traceID, "Format", ddsFormatAutomatic);
-		set(traceID, "NumDigits", 3);
-		set(traceID, "Font", "Arial For CAE");
-		set(traceID, "FontSize", 112);
-		set(traceID, "LineColorAutoSequence", FALSE);
-		set(traceID, "LineTypeAutoSequence", FALSE);
-		set(traceID, "SymbolTypeAutoSequence", FALSE);
-		set(traceID, "LineColorAutoSequenceOrder", 3);
-		set(traceID, "LineTypeAutoSequenceOrder", 1);
-		set(traceID, "SymbolTypeAutoSequenceOrder", 2);
-		if (DDSnumTraceTypes > 8) {
-			set(traceID, "NumberOfDensityColors", 16);
-			set(traceID, "DensityColorOffset", 0);
-			set(traceID, "DensityStartColor", 20);
-			set(traceID, "DensitySymbolType", ddsStarSymbol);
-		}
-	}
-traceID = get_new(goId0, "Trace", "phase(antenna_mom_a..S(1,1))", "xAxis", "yAxis");
-// Trace:
-	if (traceID != NULL) {
 		set(traceID, "TraceType", ddsLinearTraceType);
 		set(traceID, "Color", 18);
-		set(traceID, "Uid", 611);
+		set(traceID, "Uid", 1822);
 		set(traceID, "UIIndex", 0);
 		set(traceID, "Status", 43008);
 	}
@@ -304,7 +228,7 @@ traceID = get_new(goId0, "Trace", "phase(antenna_mom_a..S(1,1))", "xAxis", "yAxi
 		set(traceID, "LineType", ddsSolidLineType);
 		set(traceID, "FillPattern", 0);
 		set(traceID, "SymbolType", ddsTriangleSymbol);
-		set(traceID, "SymbolsOnOff", FALSE);
+		set(traceID, "SymbolsOnOff", TRUE);
 		set(traceID, "SymbolsSpacing", 15);
 		set(traceID, "AlwaysDisplayTransitions", FALSE);
 		set(traceID, "SpectralArrowheadsOnOff", TRUE);
@@ -332,7 +256,7 @@ set(goId0, "InitPlot", 0);
 goId0 = get_new(pageId, "SmithChart");
 // Base Class Object:
  set(goId0, "Name", "");
-       set(goId0, "Uid", 590);
+       set(goId0, "Uid", 1802);
  // Graphical Object:
  set(goId0, "Right", 3600);
  set(goId0, "Bottom", 7600);
@@ -363,7 +287,7 @@ goId0 = get_new(pageId, "SmithChart");
 axisID = get_new(goId0, "Axis", ddsXaxis, "xAxis");
 // Axis...
 	if (axisID != NULL) {
-		 set(axisID, "Uid", 608);
+		 set(axisID, "Uid", 1820);
 		 set(axisID, "Color", 104);
 		 set(axisID, "UserLabel", "");
 		 set(axisID, "LabelColor", 0);
@@ -386,8 +310,8 @@ axisID = get_new(goId0, "Axis", ddsXaxis, "xAxis");
 //Polar axis...
 	if (axisID != NULL) {
 		set(axisID, "DisplayAllIndependentData", TRUE);
-		set(axisID, "IndepStart", 1e+009);
-		set(axisID, "IndepStop", 2e+009);
+		set(axisID, "IndepStart", 1.5e+009);
+		set(axisID, "IndepStop", 1.5e+009);
 	}
 //Smith chart axis...
 	if (axisID != NULL) {
@@ -400,7 +324,7 @@ axisID = get_new(goId0, "Axis", ddsXaxis, "xAxis");
 axisID = get_new(goId0, "Axis", ddsYaxis, "yAxis");
 // Axis...
 	if (axisID != NULL) {
-		 set(axisID, "Uid", 609);
+		 set(axisID, "Uid", 1821);
 		 set(axisID, "Color", 104);
 		 set(axisID, "UserLabel", " ");
 		 set(axisID, "LabelColor", 0);
@@ -423,8 +347,8 @@ axisID = get_new(goId0, "Axis", ddsYaxis, "yAxis");
 //Polar axis...
 	if (axisID != NULL) {
 		set(axisID, "DisplayAllIndependentData", TRUE);
-		set(axisID, "IndepStart", 1e+009);
-		set(axisID, "IndepStop", 2e+009);
+		set(axisID, "IndepStart", 1.5e+009);
+		set(axisID, "IndepStop", 1.5e+009);
 	}
 //Smith chart axis...
 	if (axisID != NULL) {
@@ -437,15 +361,15 @@ axisID = get_new(goId0, "Axis", ddsYaxis, "yAxis");
 traceID = get_new(goId0, "Trace", "antenna_mom..S(1,1)", "xAxis", "yAxis");
 // Trace:
 	if (traceID != NULL) {
-		set(traceID, "TraceType", ddsScatterTraceType);
+		set(traceID, "TraceType", ddsLinearTraceType);
 		set(traceID, "Color", 18);
-		set(traceID, "Uid", 610);
+		set(traceID, "Uid", 1822);
 		set(traceID, "UIIndex", 0);
 		set(traceID, "Status", 43008);
 	}
 // Rect trace:
 	if (traceID != NULL) {
-		set(traceID, "LineThick", 20);
+		set(traceID, "LineThick", 10);
 		set(traceID, "LineType", ddsSolidLineType);
 		set(traceID, "FillPattern", 0);
 		set(traceID, "SymbolType", ddsTriangleSymbol);
@@ -472,49 +396,11 @@ traceID = get_new(goId0, "Trace", "antenna_mom..S(1,1)", "xAxis", "yAxis");
 			set(traceID, "DensitySymbolType", ddsStarSymbol);
 		}
 	}
-traceID = get_new(goId0, "Trace", "antenna_mom_a..S(1,1)", "xAxis", "yAxis");
-// Trace:
-	if (traceID != NULL) {
-		set(traceID, "TraceType", ddsLinearTraceType);
-		set(traceID, "Color", 18);
-		set(traceID, "Uid", 611);
-		set(traceID, "UIIndex", 0);
-		set(traceID, "Status", 43008);
-	}
-// Rect trace:
-	if (traceID != NULL) {
-		set(traceID, "LineThick", 10);
-		set(traceID, "LineType", ddsSolidLineType);
-		set(traceID, "FillPattern", 0);
-		set(traceID, "SymbolType", ddsTriangleSymbol);
-		set(traceID, "SymbolsOnOff", FALSE);
-		set(traceID, "SymbolsSpacing", 15);
-		set(traceID, "AlwaysDisplayTransitions", FALSE);
-		set(traceID, "SpectralArrowheadsOnOff", TRUE);
-		set(traceID, "LabelSubtracesOnOff", TRUE);
-		set(traceID, "FillHistogramsOnOff", FALSE);
-		set(traceID, "Format", ddsFormatAutomatic);
-		set(traceID, "NumDigits", 3);
-		set(traceID, "Font", "Arial For CAE");
-		set(traceID, "FontSize", 112);
-		set(traceID, "LineColorAutoSequence", FALSE);
-		set(traceID, "LineTypeAutoSequence", FALSE);
-		set(traceID, "SymbolTypeAutoSequence", FALSE);
-		set(traceID, "LineColorAutoSequenceOrder", 3);
-		set(traceID, "LineTypeAutoSequenceOrder", 1);
-		set(traceID, "SymbolTypeAutoSequenceOrder", 2);
-		if (DDSnumTraceTypes > 8) {
-			set(traceID, "NumberOfDensityColors", 16);
-			set(traceID, "DensityColorOffset", 0);
-			set(traceID, "DensityStartColor", 20);
-			set(traceID, "DensitySymbolType", ddsStarSymbol);
-		}
-	}
 // Initialize plot
 set(goId0, "InitPlot", 0);
 goId0 = get_new(pageId, "Text");
 // Text:
-	set(goId0, "String", "Wed Apr 28 2010 - Dataset: antenna_mom_a");
+	set(goId0, "String", "Thu Apr 29 2010 - Dataset: antenna_mom");
 	set(goId0, "Font", "Arial For CAE");
 	set(goId0, "FontSize", 167);
 	set(goId0, "TextColor", 0);
@@ -523,9 +409,9 @@ goId0 = get_new(pageId, "Text");
 	set(goId0, "OutlineOnOff", FALSE);
 // Base Class Object:
  set(goId0, "Name", "");
-       set(goId0, "Uid", 600);
+       set(goId0, "Uid", 1812);
  // Graphical Object:
- set(goId0, "Right", 3456);
+ set(goId0, "Right", 3206);
  set(goId0, "Bottom", 467);
  set(goId0, "Left", 10);
   set(goId0, "Top", 300);
@@ -539,15 +425,15 @@ goId0 = get_new(pageId, "Text");
  // Need to add Popup, LocalPopup, Owner...
 // Base Class Object:
  set(pageId, "Name", "page 1");
-       set(pageId, "Uid", 601424390);
+       set(pageId, "Uid", 2076590387);
  	set(pageId, "Invisible", FALSE);
 set(ddoId, "UpdateAllExpressions", TRUE);
 set(ddoId, "EnableExpressionUpdates", TRUE);
 
 ddWinId = get_new(ddsId, "Window");
 	set(ddWinId, "Object", ddoId);
-	set(ddWinId, "CurrentPage", 601424390);
-	 set(ddWinId, "PageViewRect_601424390", list(383, 4933, 6677, -277));
+	set(ddWinId, "CurrentPage", 2076590387);
+	 set(ddWinId, "PageViewRect_2076590387", list(383, 4933, 6677, -277));
 	set(ddWinId, "Frame", list(11, 31, 600, 550));
 	set(ddWinId, "ForegroundColor", 0);
 	set(ddWinId, "BackgroundColor", 8);
